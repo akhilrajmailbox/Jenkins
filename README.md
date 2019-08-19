@@ -37,10 +37,8 @@ git show-ref | grep $(git rev-parse HEAD) | grep remotes | grep -v HEAD | sed -e
 ```
 
 
-[pdf-files]()
+[pdf-files](https://github.com/akhilrajmailbox/Jenkins/tree/master/pdf-files)
 
 ## Web pages for reference
 
-```
-You can clone this repo and open the html files in side [Web-Files]() for some configuration reference
-```
+You can clone this repo and open the html files in side [Web-Files](https://github.com/akhilrajmailbox/Jenkins/tree/master/Web-Files) for some configuration reference.
