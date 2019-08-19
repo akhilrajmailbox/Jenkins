@@ -1,0 +1,3093 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>security - Reset Jenkins Configuration Command Line - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Reset Jenkins Configuration Command Line">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Is there a way to reset all (or just disable the security settings) from the command line without a user/password as I have managed to completely lock myself out of Jenkins?">
+    <meta property="og:url" content="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line">
+    <link rel="canonical" href="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line">
+
+    
+    
+    <script async="" src="security-Reset-Jenkins-Configuration_files/quant.js"></script><script async="" src="security-Reset-Jenkins-Configuration_files/beacon.js"></script><script async="" src="security-Reset-Jenkins-Configuration_files/analytics.js"></script><script type="text/javascript" async="" src="security-Reset-Jenkins-Configuration_files/ados.js"></script><script type="text/javascript" async="" src="security-Reset-Jenkins-Configuration_files/ados_002.js"></script><script src="security-Reset-Jenkins-Configuration_files/jquery.js"></script>
+    <script src="security-Reset-Jenkins-Configuration_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="security-Reset-Jenkins-Configuration_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'Reset Jenkins Configuration Command Line'" href="https://stackoverflow.com/feeds/question/6988849">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:6988849});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '6988849');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1495796201,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"6d44733273158e280d674dcb101b58fe","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"d997c7759a63","js/moderator.en.js":"6ac1015d4659","js/full-anon.en.js":"a1c74342caa8","js/full.en.js":"f89477585a7c","js/wmd.en.js":"35fcb6d64d47","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"834f9e606700","js/help.en.js":"a2f92aacc060","js/tageditor.en.js":"248fce004255","js/tageditornew.en.js":"5013267efdb2","js/inline-tag-editing.en.js":"51e3b8dc46d2","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"9767aab2b2b0","js/tagsuggestions.en.js":"91ec144ebee0","js/post-validation.en.js":"02d708245e1a","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"d1e05265b557","js/keyboard-shortcuts.en.js":"c9e1aad40b6d","js/external-editor.en.js":"e574ed908cf3","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"e574ed908cf3","js/snippet-javascript.en.js":"8949a8564319","js/snippet-javascript-codemirror.en.js":"ceacd7af089f"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css"><style type="text/css">body,.so-header{margin-top:1.9em}</style></noscript>
+<script async="" src="security-Reset-Jenkins-Configuration_files/full-anon.js"></script><script async="" src="security-Reset-Jenkins-Configuration_files/snippet-javascript.js"></script><script async="" src="security-Reset-Jenkins-Configuration_files/post-validation.js"></script><script async="" src="security-Reset-Jenkins-Configuration_files/external-editor.js"></script><script type="text/javascript" src="security-Reset-Jenkins-Configuration_files/adFeedback.js"></script><link rel="stylesheet" href="security-Reset-Jenkins-Configuration_files/adFeedback.css"><link rel="stylesheet" href="security-Reset-Jenkins-Configuration_files/jobs-multi.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="https://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="https://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    <input name="q" placeholder="Search..." tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field" type="text">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f6988849%2freset-jenkins-configuration-command-line" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg role="icon" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16.001A8 8 0 0 0 9 1zm.812 12.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 167 Stack Exchange sites">
+            <svg role="icon" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13a2 2 0 0 0 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f6988849%2freset-jenkins-configuration-command-line" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.2 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line" class="question-hyperlink">Reset Jenkins Configuration Command Line</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="6988849" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1278235890",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1278235890"><a href="https://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo1MTc3NTcsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjM4OTgwLCJkaSI6IjBlMzgwOGE1NjliODQ1MDU4NWIxMDVkZGVlM2Y3YmMzIiwiZG0iOjEsImZjIjoyMTY0NTU5LCJmbCI6MjYzMTU4NCwiaXAiOiI0OS4yMDQuNzcuMTMwIiwia3ciOiJzZWN1cml0eSxqZW5raW5zLHgtY3Jvc3Mtc2l0ZS1zZXJ2ZXJmYXVsdC5jb20seC1jcm9zcy1zaXRlLWFza3VidW50dS5jb20seC1wZXJzb25hLWRldm9wcyIsIm1rIjoieC1wZXJzb25hLWRldm9wcyIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjIsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvLmluLyIsInNiIjoiaS0wYTg2ZGI3YTEwNzY4ZTA0MiIsInNwIjozMTg5OCwic3QiOjgyNzcsInVrIjoidWUxLTI2Mzc2YjhjYjgzMzRmYTM5OGMyZTE3ZTM0ZDIwNDg3Iiwiem4iOjQzLCJ0cyI6MTQ5NTc5NjIwNDUzOCwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI3ODIzNTg5MCIsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2pvYnM_dXRtX3NvdXJjZT13ZWJzaXRlJnV0bV9tZWRpdW09YmFubmVyJnV0bV9jb250ZW50PWxlYWRlcmJvYXJkXzYmdXRtX2NhbXBhaWduPWhvdXNlX2Fkc19ob3VzZV9hZHNfUk9TX1NPIn0&amp;s=xQ_PBETIJ1teTHfFF0En-Q3w0Mc" rel="nofollow" target="_blank" title=""><img src="security-Reset-Jenkins-Configuration_files/0932cfed3e374852a27a09c2ed27061c.png" title="" alt="" height="90" width="728" border="0"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="security-Reset-Jenkins-Configuration_files/i_002.gif" height="0px" width="0px" border="0"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="6988849" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">118</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>36</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>Is there a way to reset all (or just disable the security settings) 
+from the command line without a user/password as I have managed to 
+completely lock myself out of <code>Jenkins</code>?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/security" class="post-tag js-gps-track" title="show questions tagged 'security'" rel="tag">security</a> <a href="https://stackoverflow.com/questions/tagged/jenkins" class="post-tag js-gps-track" title="show questions tagged 'jenkins'" rel="tag">jenkins</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/6988849" title="short permalink to this question" class="short-link" id="link-post-6988849">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/6988849/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/6988849/revisions" title="show all edits to this post">edited <span title="2016-07-10 13:44:18Z" class="relativetime">Jul 10 '16 at 13:44</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/55075/kenorb"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/8bbc94977312d285045b2412257b6cb8.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/55075/kenorb">kenorb</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 33,241" dir="ltr">33.2k</span><span title="14 gold badges"><span class="badge1"></span><span class="badgecount">14</span></span><span title="213 silver badges"><span class="badge2"></span><span class="badgecount">213</span></span><span title="212 bronze badges"><span class="badge3"></span><span class="badgecount">212</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2011-08-08 21:28:13Z" class="relativetime">Aug 8 '11 at 21:28</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/384016/ryanzec"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/845f343c1d289a3ee6ea5140fef8a25b.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/384016/ryanzec">ryanzec</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">8,777</span><span title="24 gold badges"><span class="badge1"></span><span class="badgecount">24</span></span><span title="87 silver badges"><span class="badge2"></span><span class="badgecount">87</span></span><span title="139 bronze badges"><span class="badge3"></span><span class="badgecount">139</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6988849" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-6988849" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								14 Answers
+                                <span style="display:none;" itemprop="answerCount">14</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="20388835"></a>
+<div id="answer-20388835" class="answer" data-answerid="20388835" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="20388835" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">107</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The simplest solution is to completely disable security - change <code>true</code> to <code>false</code> in <code>/var/lib/jenkins/config.xml</code> file.</p>
+
+<pre><code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;
+</code></pre>
+
+<p>Then just restart Jenkins, go to admin panel and set everything once again.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/20388835" title="short permalink to this answer" class="short-link" id="link-post-20388835">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/20388835/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/20388835/revisions" title="show all edits to this post">edited <span title="2014-05-24 21:10:44Z" class="relativetime">May 24 '14 at 21:10</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-12-05 00:08:32Z" class="relativetime">Dec 5 '13 at 0:08</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/504845/nowaker"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/cfd7e02060bfb5c9bb36f956949623f6.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/504845/nowaker">Nowaker</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,697</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="37 silver badges"><span class="badge2"></span><span class="badgecount">37</span></span><span title="57 bronze badges"><span class="badge3"></span><span class="badgecount">57</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20388835" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="3" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-33381698" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I needed to restart Jenkins for change to apply.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/413289/or-arbel" title="2,324 reputation" class="comment-user">Or Arbel</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment33381698_20388835"><span title="2014-02-25 17:22:54Z" class="relativetime-clean">Feb 25 '14 at 17:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-42153663" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="warm">8</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy"><code>sudo service jenkins restart</code></span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/294702/monothreaded" title="3,715 reputation" class="comment-user">MonoThreaded</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment42153663_20388835"><span title="2014-11-06 20:23:20Z" class="relativetime-clean">Nov 6 '14 at 20:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-46893859" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">To those who can't find it their config.xml use <code>find / -name "config.xml" </code> in your terminal.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/325545/jjacquet" title="487 reputation" class="comment-user">JJacquet</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment46893859_20388835"><span title="2015-03-30 19:18:41Z" class="relativetime-clean">Mar 30 '15 at 19:18</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-64733996" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">After Changing user Security  tag to false for restart jenking from command prompt --- <a href="http://stackoverflow.com/questions/14869311/start-stop-and-restart-jenkins-service-on-windows" title="start stop and restart jenkins service on windows">stackoverflow.com/questions/14869311/…</a></span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/4534414/larry-kuk" title="327 reputation" class="comment-user">Larry kuk</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment64733996_20388835"><span title="2016-07-30 18:30:39Z" class="relativetime-clean">Jul 30 '16 at 18:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-64807631" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This leaves your Jenkins installation unsecured while you recreate your configuration. I prefer aruseni's answer below.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2231950/kontextify" title="205 reputation" class="comment-user">kontextify</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment64807631_20388835"><span title="2016-08-02 08:38:19Z" class="relativetime-clean">Aug 2 '16 at 8:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20388835" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>3</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1692991618",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1692991618"><a href="https://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo1MTc3NTcsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjM4OTgyLCJkaSI6ImZmOWQ2YWIyNWQxZjQ4Yjg4OGFmOTVkODI5YmIxYzA2IiwiZG0iOjEsImZjIjoyMTY0NDk0LCJmbCI6MjYzMTUxNCwiaXAiOiI0OS4yMDQuNzcuMTMwIiwia3ciOiJzZWN1cml0eSxqZW5raW5zLHgtY3Jvc3Mtc2l0ZS1zZXJ2ZXJmYXVsdC5jb20seC1jcm9zcy1zaXRlLWFza3VidW50dS5jb20seC1wZXJzb25hLWRldm9wcyIsIm1rIjoieC1jcm9zcy1zaXRlLXNlcnZlcmZhdWx0LmNvbSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjIsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvLmluLyIsInNiIjoiaS0wYTg2ZGI3YTEwNzY4ZTA0MiIsInNwIjozMTg5OCwic3QiOjgyNzcsInVrIjoidWUxLTI2Mzc2YjhjYjgzMzRmYTM5OGMyZTE3ZTM0ZDIwNDg3Iiwiem4iOjQ0LCJ0cyI6MTQ5NTc5NjIwNDU0MSwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTY5Mjk5MTYxOCIsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2pvYnM_dXRtX3NvdXJjZT13ZWJzaXRlJnV0bV9tZWRpdW09YmFubmVyJnV0bV9jb250ZW50PWxlYWRlcmJvYXJkXzYmdXRtX2NhbXBhaWduPWhvdXNlX2Fkc19ob3VzZV9hZHNfUk9TX1NPIn0&amp;s=zpQD-O_ovdDjOGQT8KM3j7vNFnc" rel="nofollow" target="_blank" title=""><img src="security-Reset-Jenkins-Configuration_files/6659d543875d40bfb2e08cde06af5a6f.png" title="" alt="" height="90" width="728" border="0"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="security-Reset-Jenkins-Configuration_files/i_003.gif" height="0px" width="0px" border="0"></div>
+  
+<a name="23564821"></a>
+<div id="answer-23564821" class="answer" data-answerid="23564821" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="23564821" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">70</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>One other way would be to manually edit the configuration file for 
+your user (e.g. /var/lib/jenkins/users/username/config.xml) and update 
+the contents of <strong>passwordHash</strong>:</p>
+
+<pre><code>&lt;passwordHash&gt;#jbcrypt:$2a$10$razd3L1aXndFfBNHO95aj.IVrFydsxkcQCcLmujmFQzll3hcUrY7S&lt;/passwordHash&gt;
+</code></pre>
+
+<p>Once you have done this, just restart Jenkins and log in using this password:</p>
+
+<pre><code>test
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/23564821" title="short permalink to this answer" class="short-link" id="link-post-23564821">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/23564821/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-05-09 12:35:00Z" class="relativetime">May 9 '14 at 12:35</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/297435/aruseni"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/01d06a7d680e36397f62670582c35669.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/297435/aruseni">aruseni</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,997</span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-23564821" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="4" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-63823452" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thanks, that saved my day</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1184842/jan" title="1,138 reputation" class="comment-user">jan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment63823452_23564821"><span title="2016-07-05 09:19:39Z" class="relativetime-clean">Jul 5 '16 at 9:19</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-64034710" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">what if this entry is not there - where to actually put it?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/3990012/serup" title="697 reputation" class="comment-user">serup</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment64034710_23564821"><span title="2016-07-11 14:06:47Z" class="relativetime-clean">Jul 11 '16 at 14:06</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-64631337" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">the <code>&lt;passwordHash&gt;</code> xml tag is a child of <code>&lt;hudson.security.HudsonPrivateSecurityRealm_-Details&gt;</code>.  Look at the default admin user for an idea of the total XML structure.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1470040/ivandov" title="102 reputation" class="comment-user">ivandov</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment64631337_23564821"><span title="2016-07-27 20:46:42Z" class="relativetime-clean">Jul 27 '16 at 20:46</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 3 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-64807712" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is a good solution that keeps the installation secure. Out of curiosity, how does one generate that password hash?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/2231950/kontextify" title="205 reputation" class="comment-user">kontextify</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment64807712_23564821"><span title="2016-08-02 08:40:36Z" class="relativetime-clean">Aug 2 '16 at 8:40</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-65255172" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@kontextify check the answer by uckelman</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1761179/basit-ali" title="589 reputation" class="comment-user">Basit Ali</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment65255172_23564821"><span title="2016-08-15 06:31:33Z" class="relativetime-clean">Aug 15 '16 at 6:31</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-23564821" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>4</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="6996454"></a>
+<div id="answer-6996454" class="answer accepted-answer" data-answerid="6996454" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="6996454" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">39</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I found the file in question located in /var/lib/jenkins called config.xml, modifying that fixed the issue.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/6996454" title="short permalink to this answer" class="short-link" id="link-post-6996454">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/6996454/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature owner" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-08-09 12:51:38Z" class="relativetime">Aug 9 '11 at 12:51</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/384016/ryanzec"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/845f343c1d289a3ee6ea5140fef8a25b.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/384016/ryanzec">ryanzec</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">8,777</span><span title="24 gold badges"><span class="badge1"></span><span class="badgecount">24</span></span><span title="87 silver badges"><span class="badge2"></span><span class="badgecount">87</span></span><span title="139 bronze badges"><span class="badge3"></span><span class="badgecount">139</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6996454" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-59394686" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I am using El-Capitan and config.xml couldn't be found in the location</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/730807/durai-amuthan-h" title="16,110 reputation" class="comment-user">Durai Amuthan.H</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment59394686_6996454"><span title="2016-03-08 10:52:58Z" class="relativetime-clean">Mar 8 '16 at 10:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-69069770" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@DuraiAmuthan.H Did you install it with bitnami stack?  The config file would be in <code>/Applications/jenkins-2.19.3-0/apps/jenkins/jenkins_home/use‌​rs/admin/config.xml</code></span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/3906189/siegy22" title="2,577 reputation" class="comment-user">siegy22</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment69069770_6996454"><span title="2016-12-02 10:01:14Z" class="relativetime-clean">Dec 2 '16 at 10:01</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-6996454" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="24013030"></a>
+<div id="answer-24013030" class="answer" data-answerid="24013030" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="24013030" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">17</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The <code>&lt;passwordHash&gt;</code> element in <code>users/&lt;username&gt;/config.xml</code> will accept data of the format</p>
+
+<pre><code>salt:sha256("password{salt}")
+</code></pre>
+
+<p>So, if your salt is <code>bar</code> and your password is <code>foo</code> then you can produce the SHA256 like this:</p>
+
+<pre><code>echo -n 'foo{bar}' | sha256sum
+</code></pre>
+
+<p>You should get <code>7f128793bc057556756f4195fb72cdc5bd8c5a74dee655a6bfb59b4a4c4f4349</code> as the result. Take the hash and put it with the salt into <code>&lt;passwordHash&gt;</code>:</p>
+
+<pre><code>&lt;passwordHash&gt;bar:7f128793bc057556756f4195fb72cdc5bd8c5a74dee655a6bfb59b4a4c4f4349&lt;/passwordHash&gt;
+</code></pre>
+
+<p>Restart Jenkins, then try logging in with password <code>foo</code>. 
+Then reset your password to something else. (Jenkins uses bcrypt by 
+default, and one round of SHA256 is not a secure way to store passwords.
+ You'll get a bcrypt hash stored when you reset your password.)</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/24013030" title="short permalink to this answer" class="short-link" id="link-post-24013030">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/24013030/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-06-03 10:39:25Z" class="relativetime">Jun 3 '14 at 10:39</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/181106/uckelman"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/9503d8699f2f4e733131d4e025990483.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/181106/uckelman">uckelman</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 13,714" dir="ltr">13.7k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="40 silver badges"><span class="badge2"></span><span class="badgecount">40</span></span><span title="74 bronze badges"><span class="badge3"></span><span class="badgecount">74</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-24013030" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-38382395" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This doesn't seem to work. an
+ example starts with a salt of #jbscrypt and then defines encrypt fields
+ $2a$10$.  What do these mean?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/16998/jrwren" title="9,534 reputation" class="comment-user">jrwren</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment38382395_24013030"><span title="2014-07-14 16:37:16Z" class="relativetime-clean">Jul 14 '14 at 16:37</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-38402298" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">My answer worked for me. The 
+additional fields you're seeing are for a different hash format. The 
+library Jenkins uses for handling hashed passwords supports more than 
+one format. The jbcrypt format you're referring to is more secure than 
+sha256 with a salt, but the sha256+salt format can be easily produced 
+from the command line---recall that the point of the exercise is to get 
+back into Jenkins, and then change the password from Jenkins' web 
+interface.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/181106/uckelman" title="13,714 reputation" class="comment-user">uckelman</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment38402298_24013030"><span title="2014-07-15 07:14:46Z" class="relativetime-clean">Jul 15 '14 at 7:14</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-75130049" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This also did not work for me. I'll try to find more info on bcrypt</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1885834/user1885834" title="135 reputation" class="comment-user">user1885834</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment75130049_24013030"><span title="2017-05-18 15:48:29Z" class="relativetime-clean">May 18 at 15:48</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-75152506" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">it worked for me. I used the 
+following commands: ``` PASSWORD_DIGEST="$(echo -n 
+"${ADMIN_PASSWORD}{${SALT}}" | sha256sum | awk '{print $1}')" echo 
+"password digest: $PASSWORD_DIGEST"  sed -i -e 
+"s#&lt;passwordHash&gt;.*&lt;/passwordHash&gt;#&lt;passwordHash&gt;${SALT}:${P‌
+​ASSWORD_DIGEST}&lt;/pas‌​swordHash&gt;#" 
+"/usr/share/jenkins/ref/users/admin/config.xml" sed -i -e 
+"s#&lt;apiToken&gt;.*&lt;/apiToken&gt;#&lt;apiToken&gt;${API_TOKEN}&lt;/apiToken&gt;‌
+​#" "/usr/share/jenkins/ref/users/admin/config.xml" ```</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1885834/user1885834" title="135 reputation" class="comment-user">user1885834</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment75152506_24013030"><span title="2017-05-19 07:33:33Z" class="relativetime-clean">May 19 at 7:33</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 4 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-24013030" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="10972480"></a>
+<div id="answer-10972480" class="answer" data-answerid="10972480" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="10972480" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">16</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The answer on modifying was correct. Yet, I think it should be mentioned that <code>/var/lib/jenkins/config.xml</code> looks something like this if you have activated "Project-based Matrix Authorization Strategy". Deleting <code>/var/lib/jenkins/config.xml</code> and restarting jenkins also does the trick. I also deleted the users in <code>/var/lib/jenkins/users</code> to start from scratch.</p>
+
+<pre><code>&lt;authorizationStrategy class="hudson.security.ProjectMatrixAuthorizationStrategy"&gt;
+    &lt;permission&gt;hudson.model.Computer.Configure:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Computer.Connect:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Computer.Create:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Computer.Delete:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Computer.Disconnect:jenkins-admin&lt;/permission&gt;
+    &lt;!-- if this is missing for your user and it is the only one, bad luck --&gt;
+    &lt;permission&gt;hudson.model.Hudson.Administer:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Hudson.Read:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Hudson.RunScripts:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Build:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Cancel:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Configure:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Create:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Delete:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Discover:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Read:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.Item.Workspace:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.View.Configure:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.View.Create:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.View.Delete:jenkins-admin&lt;/permission&gt;
+    &lt;permission&gt;hudson.model.View.Read:jenkins-admin&lt;/permission&gt;
+  &lt;/authorizationStrategy&gt;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/10972480" title="short permalink to this answer" class="short-link" id="link-post-10972480">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/10972480/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/10972480/revisions" title="show all edits to this post">edited <span title="2013-07-16 18:25:40Z" class="relativetime">Jul 16 '13 at 18:25</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/254477/artb"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/a5f7ff911c368f70c10417b8de5c8c2c.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/254477/artb">ArtB</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">7,968</span><span title="16 gold badges"><span class="badge1"></span><span class="badgecount">16</span></span><span title="71 silver badges"><span class="badge2"></span><span class="badgecount">71</span></span><span title="116 bronze badges"><span class="badge3"></span><span class="badgecount">116</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-06-10 21:25:07Z" class="relativetime">Jun 10 '12 at 21:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/637338/user637338"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/5f725b9d1a7fde42f9c457f9aa40b1b2.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/637338/user637338">user637338</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">856</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-10972480" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-10972480" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="35869781"></a>
+<div id="answer-35869781" class="answer" data-answerid="35869781" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="35869781" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">12</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In El-Capitan <em>config.xml</em> can not be found at </p>
+
+<blockquote>
+  <p>/var/lib/jenkins/</p>
+</blockquote>
+
+<p>Its available in </p>
+
+<blockquote>
+  <p>~/.jenkins</p>
+</blockquote>
+
+<p>then after that as other mentioned open the <em>config.xml</em> file and make the following changes</p>
+
+<ul>
+<li><p>In this replace <code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;</code> with <code>&lt;useSecurity&gt;false&lt;/useSecurity&gt;</code></p></li>
+<li><p>Remove <code>&lt;authorizationStrategy&gt;</code> and <code>&lt;securityRealm&gt;</code></p></li>
+<li><p>Save it and restart the jenkins(<em>sudo service jenkins restart</em>)</p></li>
+</ul>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/35869781" title="short permalink to this answer" class="short-link" id="link-post-35869781">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/35869781/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-03-08 14:18:03Z" class="relativetime">Mar 8 '16 at 14:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/730807/durai-amuthan-h"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/HKPf2.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/730807/durai-amuthan-h">Durai Amuthan.H</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 16,110" dir="ltr">16.1k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="87 silver badges"><span class="badge2"></span><span class="badgecount">87</span></span><span title="153 bronze badges"><span class="badge3"></span><span class="badgecount">153</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-35869781" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-35869781" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="21063172"></a>
+<div id="answer-21063172" class="answer" data-answerid="21063172" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="21063172" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">9</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>To reset it <strong>without disabling security</strong> if you're using matrix permissions (probably easily adaptable to other login methods):</p>
+
+<ol>
+<li>In <code>config.xml</code>, set <strong><code>disableSignup</code></strong> to <code>false</code>.</li>
+<li><strong>Restart</strong> Jenkins.</li>
+<li>Go to the Jenkins web page and <strong>sign up with a new user</strong>.</li>
+<li>In <code>config.xml</code>, duplicate one of the <code>&lt;permission&gt;hudson.model.Hudson.Administer:username&lt;/permission&gt;</code> lines and replace <em><code>username</code></em> with the new user.</li>
+<li>If it's a private server, set <strong><code>disableSignup</code></strong> back to <code>true</code> in <code>config.xml</code>.</li>
+<li><strong>Restart</strong> Jenkins.</li>
+<li>Go to the Jenkins web page and <strong>log in as the new user</strong>.</li>
+<li><strong>Reset the password</strong> of the original user.</li>
+<li><strong>Log in</strong> as the original user.</li>
+</ol>
+
+<p>Optional cleanup:</p>
+
+<ol>
+<li>Delete the new user.</li>
+<li>Delete the temporary <code>&lt;permission&gt;</code> line in <code>config.xml</code>.</li>
+</ol>
+
+<p>No securities were harmed during this answer.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/21063172" title="short permalink to this answer" class="short-link" id="link-post-21063172">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/21063172/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-01-11 14:02:40Z" class="relativetime">Jan 11 '14 at 14:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/96588/l0b0"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/425fed56a46504d37ec907d99b09ecde.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/96588/l0b0">l0b0</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 23,541" dir="ltr">23.5k</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="71 silver badges"><span class="badge2"></span><span class="badgecount">71</span></span><span title="128 bronze badges"><span class="badge3"></span><span class="badgecount">128</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-21063172" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-21063172" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="28908367"></a>
+<div id="answer-28908367" class="answer" data-answerid="28908367" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="28908367" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">8</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>On the offchance you accidentally lock yourself out of Jenkins due to
+ a permission mistake, and you dont have server-side access to switch to
+ the jenkins user or root... You can make a job in Jenkins and add this 
+to the Shell Script:</p>
+
+<pre><code>sed -i 's/&lt;useSecurity&gt;true/&lt;useSecurity&gt;false/' ~/config.xml
+</code></pre>
+
+<p>Then click Build Now and restart Jenkins (or the server if you need to!)</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/28908367" title="short permalink to this answer" class="short-link" id="link-post-28908367">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/28908367/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-03-06 21:57:26Z" class="relativetime">Mar 6 '15 at 21:57</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/224707/nick"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/870ccdb57016c46120bb8e93f8bca94a.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/224707/nick">Nick</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,249</span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="36 bronze badges"><span class="badge3"></span><span class="badgecount">36</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-28908367" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-61541693" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">How do you create a job in Jenkins in case you have yourself locked out of it?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1744774/gerold-broser" title="5,171 reputation" class="comment-user">Gerold Broser</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment61541693_28908367"><span title="2016-05-03 00:44:21Z" class="relativetime-clean">May 3 '16 at 0:44</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-61558120" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">In this case, I had a normal 
+Chrome window logged in and I altered the security settings and tested 
+in an Incognito Window before logging out of the main window. The test 
+did not let me log in, but my sessions persisted in the main window so I
+ could repair the damage.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/224707/nick" title="1,249 reputation" class="comment-user">Nick</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment61558120_28908367"><span title="2016-05-03 11:22:30Z" class="relativetime-clean">May 3 '16 at 11:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-61558167" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I believe part of the 
+security settings I'd changed also meant that my auth session no longer 
+had permission to alter Jenkins security configurations.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/224707/nick" title="1,249 reputation" class="comment-user">Nick</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment61558167_28908367"><span title="2016-05-03 11:23:27Z" class="relativetime-clean">May 3 '16 at 11:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-28908367" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="38292526"></a>
+<div id="answer-38292526" class="answer" data-answerid="38292526" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="38292526" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>To disable Jenkins security in simple steps in Linux, run these commands:</p>
+
+<pre><code>sudo ex +g/useSecurity/d +g/authorizationStrategy/d -scwq /var/lib/jenkins/config.xml
+sudo /etc/init.d/jenkins restart
+</code></pre>
+
+<p>It will remove <code>useSecurity</code> and <code>authorizationStrategy</code> lines from your <code>config.xml</code> root config file and restart your Jenkins.</p>
+
+<p>See also: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Disable+security" rel="noreferrer">Disable security</a> at Jenkins website</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/38292526" title="short permalink to this answer" class="short-link" id="link-post-38292526">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/38292526/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-07-10 13:43:41Z" class="relativetime">Jul 10 '16 at 13:43</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/55075/kenorb"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/8bbc94977312d285045b2412257b6cb8.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/55075/kenorb">kenorb</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 33,241" dir="ltr">33.2k</span><span title="14 gold badges"><span class="badge1"></span><span class="badgecount">14</span></span><span title="213 silver badges"><span class="badge2"></span><span class="badgecount">213</span></span><span title="212 bronze badges"><span class="badge3"></span><span class="badgecount">212</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-38292526" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-69990347" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thanks dude it works</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/4649110/basi" title="176 reputation" class="comment-user">Basi</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment69990347_38292526"><span title="2016-12-30 10:06:39Z" class="relativetime-clean">Dec 30 '16 at 10:06</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-38292526" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="39022575"></a>
+<div id="answer-39022575" class="answer" data-answerid="39022575" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="39022575" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre><code>\.jenkins\secrets\initialAdminPassword
+</code></pre>
+
+<p>Copy the password from the initialAdminPassword file and paste it into the Jenkins.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/39022575" title="short permalink to this answer" class="short-link" id="link-post-39022575">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/39022575/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/39022575/revisions" title="show all edits to this post">edited <span title="2017-01-18 22:12:25Z" class="relativetime">Jan 18 at 22:12</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4390212/dimasan"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/JrUii.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/4390212/dimasan">DimaSan</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,165</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="37 bronze badges"><span class="badge3"></span><span class="badgecount">37</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-08-18 15:50:19Z" class="relativetime">Aug 18 '16 at 15:50</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/3244370/shivam"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/78c19ae3777fbcf95a96958b9b864f70.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/3244370/shivam">Shivam</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">31</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-39022575" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-39022575" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="27491359"></a>
+<div id="answer-27491359" class="answer" data-answerid="27491359" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="27491359" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>changing the <code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;</code> to <code>&lt;useSecurity&gt;false&lt;/useSecurity&gt;</code> will not be enough, you should remove <code>&lt;authorizationStrategy&gt;</code> and <code>&lt;securityRealm&gt;</code> elements too and restart your jenkins server by doing <code>sudo service jenkins restart</code> .</p>
+
+<p>remember this, set <code>&lt;usesecurity&gt;</code> to <code>false</code> only may cause a problem for you, since these instructions are mentioned in thier official documentation <a href="https://wiki.jenkins-ci.org/display/JENKINS/Disable+security" rel="nofollow">here</a>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/27491359" title="short permalink to this answer" class="short-link" id="link-post-27491359">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/27491359/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-12-15 19:12:09Z" class="relativetime">Dec 15 '14 at 19:12</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2855720/musharraf-al-tamimi"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/dEOpO.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/2855720/musharraf-al-tamimi">Musharraf Al-tamimi</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">99</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-27491359" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-27491359" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42976361"></a>
+<div id="answer-42976361" class="answer" data-answerid="42976361" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="42976361" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<h1>Easy way out of this is to use the admin psw to login with your admin user:</h1>
+
+<ul>
+<li>Change to root user: <code>sudo su -</code></li>
+<li>Copy the password: <code>xclip -sel clip &lt; /var/lib/jenkins/secrets/initialAdminPassword</code></li>
+<li>Login with admin and press <code>ctrl + v</code> on password input box.</li>
+</ul>
+
+<h1>Install xclip if you don't have it:</h1>
+
+<ul>
+<li><code>$ sudo apt-get install xclip</code></li>
+</ul>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/42976361" title="short permalink to this answer" class="short-link" id="link-post-42976361">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/42976361/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-23 12:40:24Z" class="relativetime">Mar 23 at 12:40</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2395283/thomas-modeneis"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/ca5d1e7d33f933c74a10e72a5f37b6a0.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/2395283/thomas-modeneis">Thomas Modeneis</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">168</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42976361" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-74778445" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Using the default password 
+worked for me. To keep it simple, you could just do 'cat 
+secrets/initialAdminPassword' rather than installing xclip for a 
+one-off.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/94503/paul" title="873 reputation" class="comment-user">Paul</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment74778445_42976361"><span title="2017-05-09 13:48:46Z" class="relativetime-clean">May 9 at 13:48</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42976361" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="19208831"></a>
+<div id="answer-19208831" class="answer" data-answerid="19208831" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="19208831" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I had a similar issue, and following reply from ArtB,</p>
+
+<p>I found that my user didn't have the proper configurations. so what I did:</p>
+
+<p><strong>Note: manually modifying such XML files is risky. Do it at 
+your own risk. Since I was already locked out, I didn't have much to 
+lose. AFAIK Worst case I would have deleted the ~/.jenkins/config.xml 
+file as prev post mentioned.</strong></p>
+
+<p>**&gt; 1. ssh to the jenkins machine</p>
+
+<blockquote>
+  <ol>
+  <li>cd ~/.jenkins   (I guess that some installations put it under /var/lib/jenkins/config.xml, but not in my case )</li>
+  <li>vi config.xml, and under authorizationStrategy xml tag, add the 
+below section (just used my username instead of "put-your-username")</li>
+  <li>restart jenkins. in my case as root service tomcat7 stop; ; service tomcat7 start</li>
+  <li>Try to login again. (worked for me)**</li>
+  </ol>
+</blockquote>
+
+<p>under 
+  </p>
+
+<p>add:</p>
+
+<pre><code>&lt;permission&gt;hudson.model.Computer.Build:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Computer.Configure:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Computer.Connect:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Computer.Create:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Computer.Delete:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Computer.Disconnect:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Hudson.Administer:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Hudson.ConfigureUpdateCenter:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Hudson.Read:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Hudson.RunScripts:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Hudson.UploadPlugins:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Build:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Cancel:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Configure:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Create:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Delete:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Discover:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Read:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Item.Workspace:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Run.Delete:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.Run.Update:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.View.Configure:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.View.Create:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.View.Delete:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.model.View.Read:put-your-username&lt;/permission&gt;
+&lt;permission&gt;hudson.scm.SCM.Tag:put-your-username&lt;/permission&gt;
+</code></pre>
+
+<p>Now, you can go to different directions. For example I had github 
+oauth integration, so I could have tried to replace the 
+authorizationStrategy with something like below:</p>
+
+<p><strong>Note:, It worked in my case because I had a specific github 
+oauth plugin that was already configured. So it is more risky than the 
+previous solution.</strong></p>
+
+<pre><code>  &lt;authorizationStrategy class="org.jenkinsci.plugins.GithubAuthorizationStrategy" plugin="github-oauth@0.14"&gt;
+    &lt;rootACL&gt;
+      &lt;organizationNameList class="linked-list"&gt;
+        &lt;string&gt;&lt;/string&gt;
+      &lt;/organizationNameList&gt;
+      &lt;adminUserNameList class="linked-list"&gt;
+        &lt;string&gt;put-your-username&lt;/string&gt;
+        &lt;string&gt;username2&lt;/string&gt;
+        &lt;string&gt;username3&lt;/string&gt;
+        &lt;string&gt;username_4_etc_put_username_that_will_become_administrator&lt;/string&gt;
+      &lt;/adminUserNameList&gt;
+      &lt;authenticatedUserReadPermission&gt;true&lt;/authenticatedUserReadPermission&gt;
+      &lt;allowGithubWebHookPermission&gt;false&lt;/allowGithubWebHookPermission&gt;
+      &lt;allowCcTrayPermission&gt;false&lt;/allowCcTrayPermission&gt;
+      &lt;allowAnonymousReadPermission&gt;false&lt;/allowAnonymousReadPermission&gt;
+    &lt;/rootACL&gt;
+  &lt;/authorizationStrategy&gt;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/19208831" title="short permalink to this answer" class="short-link" id="link-post-19208831">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/19208831/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-10-06 12:27:10Z" class="relativetime">Oct 6 '13 at 12:27</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1256928/drordk"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/d9206860fb84c2f6c99dfe8c896f7645.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1256928/drordk">drordk</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">71</span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19208831" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-19208831" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="19421478"></a>
+<div id="answer-19421478" class="answer" data-answerid="19421478" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="19421478" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Edit the file $JENKINS_HOME/config.xml and change de security configuration with this:</p>
+
+<pre><code>&lt;authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/&gt;
+</code></pre>
+
+<p>After that restart Jenkins.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/19421478" title="short permalink to this answer" class="short-link" id="link-post-19421478">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/19421478/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-10-17 08:16:45Z" class="relativetime">Oct 17 '13 at 8:16</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/797704/richarbernal"><div class="gravatar-wrapper-32"><img src="security-Reset-Jenkins-Configuration_files/e2e7596c0d609b726a438b8dadc0d9d9.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/797704/richarbernal">richarbernal</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">797</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="29 bronze badges"><span class="badge3"></span><span class="badgecount">29</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19421478" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-19421478" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/6988849/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="6988849" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.co.in/" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="6d44733273158e280d674dcb101b58fe" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f6988849%2freset-jenkins-configuration-command-line%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        
+StackExchange.openid.initPostLogin('.new-post-login', 
+'https%3a%2f%2fstackoverflow.com%2fquestions%2f6988849%2freset-jenkins-configuration-command-line%23new-answer',
+ 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" 
+type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" 
+size="30" maxlength="100" value="" tabindex="106" placeholder="required,
+ but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/security" class="post-tag" title="show questions tagged 'security'" rel="tag">security</a> <a href="https://stackoverflow.com/questions/tagged/jenkins" class="post-tag" title="show questions tagged 'jenkins'" rel="tag">jenkins</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-08-08 21:28:13Z"><b>5 years, 9 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>114588 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="https://stackoverflow.com/questions/6988849/reset-jenkins-configuration-command-line?lastactivity" class="lastactivity-link" title="2017-03-23 12:40:24Z">2 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/05/24/dive-stack-overflow-jobs-search/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/05/24/dive-stack-overflow-jobs-search/?cb=1" class="question-hyperlink">A Dive Into Stack Overflow Jobs Search</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/?cb=1" class="question-hyperlink">Stack Overflow: Helping One Million Developers Exit Vim</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk108576935",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk108576935"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img style="position:absolute;" src="security-Reset-Jenkins-Configuration_files/i.gif" height="0px" width="0px" border="0"></div>
+            <div id="hireme" class="orange tagged tex2jax_ignore clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%3Fmed=clc&amp;sig=YL1NIsxuzXgs3A"><span>Looking for a job?</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Architect Development Expert - SAP Ariba Core Product Engineering &amp; Innovation at SAP Ariba Technologies India Pvt Ltd. Click to learn more." href="https://stackoverflow.com/jobs/128685/architect-development-expert-sap-ariba-core-sap-ariba-technologies-india" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=14817&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F128685%2Farchitect-development-expert-sap-ariba-core-sap-ariba-technologies-india%3Fmed=clc&amp;sig=4hKtvKwZYrxqgg"><div class="title">Architect Development Expert - SAP Ariba Core Product Engineering &amp; Innovation</div><div><span class="company">SAP Ariba Technologies India Pvt Ltd</span><span class="location">Bengaluru, India</span></div><div class="opts"><span class="opt salary">₹4000k - ₹7500k</span><span class="opt relocate">Relocation</span></div><span class="post-tag highlight">java</span><span class="post-tag">java-ee</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=14817&amp;ct=-1&amp;sig=ET5YazQYnep70A" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="DevOps Architect at Philips India. Click to learn more." href="https://stackoverflow.com/jobs/140825/devops-architect-philips-india" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=258446&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F140825%2Fdevops-architect-philips-india%3Fmed=clc&amp;sig=eSPEjijJKFWVAQ"><div class="title">DevOps Architect</div><div><span class="company">Philips India</span><span class="location">Bengaluru, India</span></div><div class="opts"><span class="opt salary">₹3000k - ₹5000k</span></div><span class="post-tag">c#</span><span class="post-tag">.net</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=258446&amp;ct=-1&amp;sig=e1vEKjLz_CHMjg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="UNIX/Linux Systems Administrator at Wallethub. Click to learn more." href="https://stackoverflow.com/jobs/140240/unix-linux-systems-administrator-wallethub" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=257225&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F140240%2Funix-linux-systems-administrator-wallethub%3Fmed=clc&amp;sig=5hjvX_fGsLrq5g"><div class="title">UNIX/Linux Systems Administrator</div><div><span class="company">Wallethub</span><span class="location">Washington, DC</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag">linux</span><span class="post-tag">apache</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=257225&amp;ct=-1&amp;sig=xoTCbwJaCE7SjA" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Lead Java J2EE Developer at Wissen Technology. Click to learn more." href="https://stackoverflow.com/jobs/141757/lead-java-j2ee-developer-wissen-technology" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=260391&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F141757%2Flead-java-j2ee-developer-wissen-technology%3Fmed=clc&amp;sig=OS_CGnk6YHrkaA"><div class="title">Lead Java J2EE Developer</div><div><span class="company">Wissen Technology</span><span class="location">Bengaluru, India</span></div><div class="opts"><span class="opt salary">₹1500k - ₹4000k</span><span class="opt relocate">Relocation</span></div><span class="post-tag highlight">java</span><span class="post-tag">spring</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4-q8UflMdckVD1XmED9PJiaWjSdWMfOV7K_128Fuls340e92wPFABhaGng0MDA32jIwMLLOZfmbtKHpY7MHCwHhgZsR6y18Cy-0YWbISyxKlmdpWsy94wNH3mJ8NJNvov9dSb6W1nTTTquXs225znLzJz8nCkHIg1mCjZddyUfvZTLM2sv96zrH8Ez8zSP0h5vuWuqJboKYxnHsX8sdtB0fL9eUA&amp;cr=260391&amp;ct=-1&amp;sig=JllQ7yxD1Onicg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="security-Reset-Jenkins-Configuration_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 
+'AhcRauQlpNQIAAAAADGkagACAAAAAgAAAABbAAAAfHNlY3VyaXR5fGplbmtpbnN8eC1jcm9zcy1zaXRlLXNlcnZlcmZhdWx0LmNvbXx4LWNyb3NzLXNpdGUtYXNrdWJ1bnR1LmNvbXx4LXBlcnNvbmEtZGV2b3BzfADCSwUI9DtlWSc-';;(function(n){var
+ 
+u={log:window.console.log.bind(window.console,"[clc]"),error:window.console.error.bind(window.console,"[clc]")},f,e,t,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(f=n.allowed,!f)return;if(e=new
+ RegExp(n.allowed),!e.test(location.hostname)){u.error("Invalid host: 
+"+location.hostname);return}if(t=window,t.clc=t.clc||{},t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return
+ n.load()}),t.clc.options){for(r in 
+t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else 
+t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(o){u.error("[clc]
+ Error in loader:",o)}}).call(null, 
+{"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=436861d2e2c5","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$"});
+        </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/14869311?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">49</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/14869311/start-stop-and-restart-jenkins-service-on-windows?noredirect=1&amp;lq=1" class="question-hyperlink">Start/Stop and Restart Jenkins service on Windows</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/36838867?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/36838867/jenkins-overall-read-permission?noredirect=1&amp;lq=1" class="question-hyperlink">Jenkins Overall/Read permission</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/38296790?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">5</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/38296790/jenkins-login-issue?noredirect=1&amp;lq=1" class="question-hyperlink">Jenkins login issue</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/33229133?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/33229133/gcloud-preview-app-cant-parse-my-yaml?noredirect=1&amp;lq=1" class="question-hyperlink">Gcloud preview app can't parse my yaml</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/37998453?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/37998453/unable-to-run-jenkins-after-el-capitan-update?noredirect=1&amp;lq=1" class="question-hyperlink">Unable to run Jenkins after El Capitan Update</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/42640944?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/42640944/how-to-reset-the-user-credentials-for-jenkins-on-mac-os-sierra?noredirect=1&amp;lq=1" class="question-hyperlink">How to reset the user credentials for Jenkins on Mac OS (Sierra)</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/2283937?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1343</div></a><a href="https://stackoverflow.com/questions/2283937/how-should-i-ethically-approach-user-password-storage-for-later-plaintext-retrie?rq=1" class="question-hyperlink">How should I ethically approach user password storage for later plaintext retrieval?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/8072700?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">637</div></a><a href="https://stackoverflow.com/questions/8072700/how-to-restart-jenkins-manually?rq=1" class="question-hyperlink">How to restart Jenkins manually?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/10805946?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">30</div></a><a href="https://stackoverflow.com/questions/10805946/jenkins-auto-created-user-account-how-to-login-change-password?rq=1" class="question-hyperlink">Jenkins auto created user account, how to login/change password?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/13052390?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">36</div></a><a href="https://stackoverflow.com/questions/13052390/jenkins-remove-old-builds-with-command-line?rq=1" class="question-hyperlink">Jenkins: remove old builds with command line</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/13832611?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">8</div></a><a href="https://stackoverflow.com/questions/13832611/how-do-i-enable-security-for-jenkins-jnlp-slaves?rq=1" class="question-hyperlink">How do I enable security for Jenkins JNLP slaves?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/14079051?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/14079051/what-external-authentication-service-can-i-use-to-secure-my-jenkins-continuous-i?rq=1" class="question-hyperlink">What external authentication service can I use to secure my Jenkins Continuous Integration environment?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/24781839?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/24781839/limit-shell-commands-in-jenkins?rq=1" class="question-hyperlink">Limit shell commands in Jenkins</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/33616957?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/33616957/jenkins-view-tab-based-security?rq=1" class="question-hyperlink">Jenkins View/Tab Based Security</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/38502745?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/38502745/cannot-disable-authentication-for-jenkins-when-running-from-command-line?rq=1" class="question-hyperlink">Cannot disable authentication for Jenkins when running from command line</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/40960796?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/40960796/building-docker-images-with-jenkins-that-runs-inside-a-docker-container?rq=1" class="question-hyperlink">Building Docker images with Jenkins that runs inside a Docker container</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-skeptics" title="Skeptics Stack Exchange"></div><a href="https://skeptics.stackexchange.com/questions/38435/could-someone-who-sent-a-letter-in-19th-century-london-expect-a-reply-within-2-h" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:212 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Could someone who sent a letter in 19th century London expect a reply within 2 hours?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/390873/a-martini-before-and-a-cigarette-after" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A martini before and a cigarette after
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/100371/what-happens-if-you-cast-resurrection-on-a-found-body-part" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens if you cast Resurrection on a found body part?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-skeptics" title="Skeptics Stack Exchange"></div><a href="https://skeptics.stackexchange.com/questions/38460/did-the-us-department-of-defense-produce-and-release-the-poster-loose-tweets-si" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:212 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did the US Department of Defense produce and release the poster "Loose tweets sink fleets"?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2297331/different-methods-different-answers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Different methods, different answers.
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="https://parenting.stackexchange.com/questions/30198/what-would-you-do-if-you-are-pretty-sure-your-son-is-heading-towards-a-disastrou" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What would you do if you are pretty sure your son is heading towards a disastrous marriage?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/307487/72-pin-simm-ram-how-do-ground-vss-and-supply-vcc-voltage-pins-work" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    72-pin SIMM RAM: how do ground (Vss) and supply (Vcc) voltage pins work
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/371752/whats-the-correct-way-to-define-package-options-in-expl3" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the correct way to define package options in expl3?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/19177/why-does-isis-continue-to-do-things-to-make-their-enemy-even-more-determined-t" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does ISIS continue to do things to make their "enemy" even more determined to go after them?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/81754/living-in-a-giant-swamp-construction" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Living in a Giant Swamp - Construction
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/160421/cve-2017-7494-samba-remote-call-how-do-i-know-if-samba-is-running-or-not-on-my" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    CVE-2017-7494 Samba remote call. How do I know if samba is running or not on my ubuntu server
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/367329/list-all-components-of-an-arm-computer-in-linux" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    list all components of an ARM computer in Linux?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/81548/how-does-a-species-who-cannot-distinguish-left-from-right-build-their-cities" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does a species who cannot distinguish left from right build their cities?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/122896/abbreviate-that-us-state" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Abbreviate that US state!
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-writers" title="Writers Stack Exchange"></div><a href="https://writers.stackexchange.com/questions/28235/how-does-a-new-writer-keep-from-getting-scooped" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does a new writer keep from getting scooped?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/81901/does-a-world-with-domestic-flying-creatures-eg-dragons-needs-cars-planes-and" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does a world with domestic flying creatures (eg: dragons) needs cars, planes and ships?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/38353/why-does-it-feel-like-a-plane-accelerates-just-before-touching-down" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does it feel like a plane accelerates just before touching down?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/122740/count-the-videos-in-a-youtube-playlist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Count the videos in a Youtube Playlist
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/122783/alternate-the-case" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    AlTeRnAtE tHe CaSe
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2296854/two-individuals-are-walking-around-a-cylindrical-tower-what-is-the-probability" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Two individuals are walking around a cylindrical 
+tower. What is the probability that they can see each other?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/100363/does-the-holy-nimbus-emanate-actual-sunlight" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does the Holy Nimbus emanate actual sunlight?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/38221/was-england-called-england-in-the-days-of-king-arthur" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Was England called England in the days of King Arthur?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/91474/hr-at-my-new-job-just-sent-me-an-email-saying-that-i-am-a-volunteer-ive-been-w" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    HR at my new job just sent me an email saying that I
+ am a volunteer. I've been working here two months under the impression 
+that it's paid work
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/91400/employer-doesnt-want-to-pay-me-because-i-took-longer-than-estimated-to-finish-t" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Employer doesn't want to pay me because I took longer than estimated to finish the work
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/6988849" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/6988849/ivc/1064');});
+</script>
+<noscript>
+    <div><img src="/posts/6988849/ivc/1064" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div><script async="" src="security-Reset-Jenkins-Configuration_files/clc.js"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="https://stackoverflow.com/company/about">about us</a>
+                        <a href="https://stackoverflow.com/tour">tour</a>
+                    <a href="https://stackoverflow.com/help">help</a>
+                    <a href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="https://chat.stackoverflow.com/">chat</a>
+                    <a href="https://data.stackexchange.com/">data</a>
+                    <a href="https://stackexchange.com/legal">legal</a>
+                    <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="https://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a href="https://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="https://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="https://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="https://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="https://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="https://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="https://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="https://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="https://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="https://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="https://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                        <li><a href="https://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="https://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="https://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="https://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="https://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="https://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="https://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="https://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="https://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="https://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="https://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="https://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="https://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="https://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="https://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="https://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="https://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="https://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="https://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="https://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="https://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="https://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="https://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="https://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="https://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="https://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="https://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="https://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="https://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="https://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="https://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="https://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="https://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="https://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="https://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="https://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="https://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="https://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="https://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="https://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="https://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="https://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="https://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="https://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="https://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="https://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="https://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="https://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.5.26.26061
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with 
+JavaScript enabled<img 
+src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" 
+class="dno"></div>
+    </noscript>
+<script>var 
+z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var
+ 
+s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('security,jenkins,x-cross-site-serverfault.com,x-cross-site-askubuntu.com,x-persona-devops');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || 
+function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new
+ Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = 
+g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 
+'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', 
+sampleRate: 5 });
+                ga('set', 'dimension2', '|security|jenkins|');
+                ga('pageData.set', 'dimension2', '|security|jenkins|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + 
+'.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + 
+'.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = 
+newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i)
+ || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') 
+service =  2;
+                                    else if (service === 'Place') 
+service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', 
+function() {
+                                        
+StackExchange.gps.track('google_maps_places_api.call', { service: 
+service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+</body></html>

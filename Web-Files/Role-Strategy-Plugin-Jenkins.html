@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://www.kblearningacademy.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://www.kblearningacademy.com/wp-content/themes/bluesip/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://www.kblearningacademy.com/wp-content/themes/bluesip/css/ie.css" />
+<![endif]-->
+	<title>Configure Role Strategy Plugin in Jenkins | KB LEARNING ACADEMY</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v3.1.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Learn how to configure Role based authorization in Jenkins. It helps in configuring multiple level of access in CI environment.">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/">
+<link rel="publisher" href="https://plus.google.com/+KaranBrar81">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configure Role Strategy Plugin in Jenkins | KB LEARNING ACADEMY">
+<meta property="og:description" content="Learn how to configure Role based authorization in Jenkins. It helps in configuring multiple level of access in CI environment.">
+<meta property="og:url" content="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/">
+<meta property="og:site_name" content="KB LEARNING ACADEMY">
+<meta property="article:publisher" content="https://www.facebook.com/kblearningacademy">
+<meta property="article:tag" content="jenkins">
+<meta property="article:section" content="Articles">
+<meta property="article:published_time" content="2016-01-30T14:52:56+00:00">
+<meta property="article:modified_time" content="2016-10-06T07:48:14+00:00">
+<meta property="og:updated_time" content="2016-10-06T07:48:14+00:00">
+<meta property="fb:app_id" content="1658275137746092">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/image_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image001_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image002_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image003_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image004_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image005_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image007_thumb.jpg">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image009_thumb.jpg">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image010_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image011_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image012_thumb.png">
+<meta property="og:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image014_thumb.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Learn how to configure Role based authorization in Jenkins. It helps in configuring multiple level of access in CI environment.">
+<meta name="twitter:title" content="Configure Role Strategy Plugin in Jenkins | KB LEARNING ACADEMY">
+<meta name="twitter:site" content="@karanb81">
+<meta name="twitter:image" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/image_thumb.png">
+<meta name="twitter:creator" content="@karanb81">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="KB LEARNING ACADEMY » Feed" href="http://www.kblearningacademy.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="KB LEARNING ACADEMY » Comments Feed" href="http://www.kblearningacademy.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="KB LEARNING ACADEMY » Configure Role Strategy Plugin in Jenkins Comments Feed" href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/feed/">
+		<script type="text/javascript" async="" src="Role-Strategy-Plugin-Jenkins_files/runtime.js"></script><script async="" src="Role-Strategy-Plugin-Jenkins_files/script.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.kblearningacademy.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Role-Strategy-Plugin-Jenkins_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="Role-Strategy-Plugin-Jenkins_files/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="dwqa-style-css" href="Role-Strategy-Plugin-Jenkins_files/style_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="dwqa-rtl-css" href="Role-Strategy-Plugin-Jenkins_files/rtl.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="Role-Strategy-Plugin-Jenkins_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="custom-text-color-style-css" href="Role-Strategy-Plugin-Jenkins_files/header.css" type="text/css" media="all">
+<style id="custom-text-color-style-inline-css" type="text/css">
+
+            .site-title a {
+                color: #blank !important;
+            }
+            .site-description {
+            	color: #blank !important;
+            }
+</style>
+<link rel="stylesheet" id="ufwp_styles-css" href="Role-Strategy-Plugin-Jenkins_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="Role-Strategy-Plugin-Jenkins_files/default.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="Role-Strategy-Plugin-Jenkins_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="codecolorer-css" href="Role-Strategy-Plugin-Jenkins_files/codecolorer.css" type="text/css" media="screen">
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/jquery.js"></script>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.kblearningacademy.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/crayon.js"></script>
+<link rel="https://api.w.org/" href="http://www.kblearningacademy.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.kblearningacademy.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.kblearningacademy.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.7.5">
+<link rel="shortlink" href="http://wp.me/p5Yiqe-5X">
+<link rel="alternate" type="application/json+oembed" href="http://www.kblearningacademy.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.kblearningacademy.com%2Fconfigure-role-strategy-plugin-in-jenkins%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://www.kblearningacademy.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.kblearningacademy.com%2Fconfigure-role-strategy-plugin-in-jenkins%2F&amp;format=xml">
+<script>
+	function expand(param) {
+		param.style.display = (param.style.display == "none") ? "block" : "none";
+	}
+	function read_toggle(id, more, less) {
+		el = document.getElementById("readlink" + id);
+		el.innerHTML = (el.innerHTML == more) ? less : more;
+		expand(document.getElementById("read" + id));
+	}
+	</script><style type="text/css">img#wpstats{display:none}</style>    <style type="text/css" id="bluesip-header-css-inject">
+            .site-header {
+            margin-top: 10px;
+            background: url(http://www.kblearningacademy.com/wp-content/uploads/2016/01/cropped-Logo1_11.png) no-repeat 50% 50%;
+            -webkit-background-size: cover;
+            -moz-background-size:    cover;
+            -o-background-size:      cover;
+            background-size:         cover;
+            min-height: 100px;
+        }
+        #left-header {
+            background: none !important;
+        }
+
+        #right-header {
+            background: none !important;
+        }
+            .site-header {
+            margin-top: 10px;
+        }
+        .site-header hgroup {
+            clip: rect(1px, 1px, 1px, 1px);
+            position: absolute;
+        }
+        </style>
+    <link rel="icon" href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/cropped-logo_favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/cropped-logo_favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/cropped-logo_favicon-180x180.png">
+<meta name="msapplication-TileImage" content="http://www.kblearningacademy.com/wp-content/uploads/2016/01/cropped-logo_favicon-270x270.png">
+
+<style id="custom-css-css">/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/
+blockquote {
+/* Old browsers */
+/* FF3.6+ */
+/* Chrome,Safari4+ */
+/* Chrome10+,Safari5.1+ */
+/* Opera 11.10+ */
+/* IE10+ */
+/* W3C */
+/* IE6-9 */
+}</style>
+<style type="text/css">@font-face{font-family:gsc;src:url(//gscst-84a.kxcdn.com/main/widgets/201705/06a7d58ffa6245254a18706c89a95687/common/fonts/gsc.eot?) format('embedded-opentype');font-weight:400;font-style:normal}@font-face{font-family:gsc;src:url(data:application/octet-stream;base64,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) format('truetype');font-weight:400;font-style:normal}@font-face{font-family:emoji;src:local('Apple Color Emoji'),local('Android Emoji'),local('Segoe UI'),local(EmojiSymbols),local(Symbola);unicode-range:U+1F300-1F5FF,U+1F600-1F64F,U+1F680-1F6FF,U+2600-26FF}@-webkit-keyframes gscw-bounceInLeft{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(-3000px,0);transform:translate(-3000px,0)}40%{opacity:1;-webkit-transform:translate(35px,0);transform:translate(35px,0)}65%{-webkit-transform:translate(-15px,0);transform:translate(-15px,0)}90%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInLeft{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(-3000px,0);transform:translate(-3000px,0)}40%{opacity:1;-webkit-transform:translate(35px,0);transform:translate(35px,0)}65%{-webkit-transform:translate(-15px,0);transform:translate(-15px,0)}90%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceInRight{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(3000px,0);transform:translate(3000px,0)}40%{opacity:1;-webkit-transform:translate(-35px,0);transform:translate(-35px,0)}65%{-webkit-transform:translate(15px,0);transform:translate(15px,0)}90%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInRight{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(3000px,0);transform:translate(3000px,0)}40%{opacity:1;-webkit-transform:translate(-35px,0);transform:translate(-35px,0)}65%{-webkit-transform:translate(15px,0);transform:translate(15px,0)}90%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceInUp{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,700px);transform:translate(0,700px)}40%{opacity:1;-webkit-transform:translate(0,-35px);transform:translate(0,-35px)}65%{-webkit-transform:translate(0,15px);transform:translate(0,15px)}90%{-webkit-transform:translate(0,-5px);transform:translate(0,-5px)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInUp{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,700px);transform:translate(0,700px)}40%{opacity:1;-webkit-transform:translate(0,-35px);transform:translate(0,-35px)}65%{-webkit-transform:translate(0,15px);transform:translate(0,15px)}90%{-webkit-transform:translate(0,-5px);transform:translate(0,-5px)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceInDown{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,-700px);transform:translate(0,-700px)}40%{opacity:1;-webkit-transform:translate(0,35px);transform:translate(0,35px)}65%{-webkit-transform:translate(0,-15px);transform:translate(0,-15px)}90%{-webkit-transform:translate(0,5px);transform:translate(0,5px)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInDown{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,-700px);transform:translate(0,-700px)}40%{opacity:1;-webkit-transform:translate(0,35px);transform:translate(0,35px)}65%{-webkit-transform:translate(0,-15px);transform:translate(0,-15px)}90%{-webkit-transform:translate(0,5px);transform:translate(0,5px)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceOutLeft{20%{opacity:1;-webkit-transform:translate(20px,0);transform:translate(20px,0)}100%{opacity:0;-webkit-transform:translate(-2000px,0);transform:translate(-2000px,0)}}@keyframes gscw-bounceOutLeft{20%{opacity:1;-webkit-transform:translate(20px,0);transform:translate(20px,0)}100%{opacity:0;-webkit-transform:translate(-2000px,0);transform:translate(-2000px,0)}}@-webkit-keyframes gscw-bounceOutRight{20%{opacity:1;-webkit-transform:translate(-20px,0);transform:translate(-20px,0)}100%{opacity:0;-webkit-transform:translate(2000px,0);transform:translate(2000px,0)}}@keyframes gscw-bounceOutRight{20%{opacity:1;-webkit-transform:translate(-20px,0);transform:translate(-20px,0)}100%{opacity:0;-webkit-transform:translate(2000px,0);transform:translate(2000px,0)}}@-webkit-keyframes gscw-slideOutLeft{100%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}}@keyframes gscw-slideOutLeft{100%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}}@-webkit-keyframes gscw-slideOutRight{100%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}}@keyframes gscw-slideOutRight{100%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}}@-webkit-keyframes gscw-slideInLeft{0%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-slideInLeft{0%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-slideInRight{0%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-slideInRight{0%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes gscw-fadeIn{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes gscw-fadeInLeft{0%{opacity:0;-webkit-transform:translate(-60%,0);transform:translate(-60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInLeft{0%{opacity:0;-webkit-transform:translate(-60%,0);transform:translate(-60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeInRight{0%{opacity:0;-webkit-transform:translate(60%,0);transform:translate(60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInRight{0%{opacity:0;-webkit-transform:translate(60%,0);transform:translate(60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeInUp{0%{opacity:0;-webkit-transform:translate(0,60%);transform:translate(0,60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInUp{0%{opacity:0;-webkit-transform:translate(0,60%);transform:translate(0,60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeInDown{0%{opacity:0;-webkit-transform:translate(0,-60%);transform:translate(0,-60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInDown{0%{opacity:0;-webkit-transform:translate(0,-60%);transform:translate(0,-60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeOut{0%{opacity:1}100%{opacity:0}}@keyframes gscw-fadeOut{0%{opacity:1}100%{opacity:0}}@-webkit-keyframes gscw-zoomIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}50%{opacity:1}100%{-webkit-transform:none;transform:none}}@keyframes gscw-zoomIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}50%{opacity:1}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-zoomOut{0%{opacity:1}50%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}100%{opacity:0}}@keyframes gscw-zoomOut{0%{opacity:1}50%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}100%{opacity:0}}@-webkit-keyframes gscw-swing{0%{opacity:0}20%{-webkit-transform:rotate3d(0,0,1,15deg);transform:rotate3d(0,0,1,15deg)}40%{opacity:1;-webkit-transform:rotate3d(0,0,1,-10deg);transform:rotate3d(0,0,1,-10deg)}60%{-webkit-transform:rotate3d(0,0,1,5deg);transform:rotate3d(0,0,1,5deg)}80%{-webkit-transform:rotate3d(0,0,1,-5deg);transform:rotate3d(0,0,1,-5deg)}100%{-webkit-transform:rotate3d(0,0,1,0deg);transform:rotate3d(0,0,1,0deg)}}@keyframes gscw-swing{0%{opacity:0}20%{-webkit-transform:rotate3d(0,0,1,15deg);transform:rotate3d(0,0,1,15deg)}40%{opacity:1;-webkit-transform:rotate3d(0,0,1,-10deg);transform:rotate3d(0,0,1,-10deg)}60%{-webkit-transform:rotate3d(0,0,1,5deg);transform:rotate3d(0,0,1,5deg)}80%{-webkit-transform:rotate3d(0,0,1,-5deg);transform:rotate3d(0,0,1,-5deg)}100%{-webkit-transform:rotate3d(0,0,1,0deg);transform:rotate3d(0,0,1,0deg)}}@-webkit-keyframes gscw-bounceIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}30%{-webkit-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}55%{opacity:1;-webkit-transform:scale(.8,.8);transform:scale(.8,.8)}72%{-webkit-transform:scale(1.13,1.13);transform:scale(1.13,1.13)}87%{-webkit-transform:scale(.97,.97);transform:scale(.97,.97)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}30%{-webkit-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}55%{opacity:1;-webkit-transform:scale(.8,.8);transform:scale(.8,.8)}72%{-webkit-transform:scale(1.13,1.13);transform:scale(1.13,1.13)}87%{-webkit-transform:scale(.97,.97);transform:scale(.97,.97)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-flipTy{0%{-webkit-transition-timing-function:ease-in;transition-timing-function:ease-in;-webkit-transform:rotateY(180deg) scale(.4,.4);transform:rotateY(180deg) scale(.4,.4)}100%{-webkit-transform:rotateY(0) scale(1,1);transform:rotateY(0) scale(1,1)}}@keyframes gscw-flipTy{0%{-webkit-transition-timing-function:ease-in;transition-timing-function:ease-in;-webkit-transform:rotateY(180deg) scale(.4,.4);transform:rotateY(180deg) scale(.4,.4)}100%{-webkit-transform:rotateY(0) scale(1,1);transform:rotateY(0) scale(1,1)}}@-webkit-keyframes gscw-flip{0%{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}100%{-webkit-transform:rotateY(0);transform:rotateY(0)}}@keyframes gscw-flip{0%{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}100%{-webkit-transform:rotateY(0);transform:rotateY(0)}}@-webkit-keyframes gscw-revealTouch{0%{margin-top:-200px}100%{margin-top:0}}@keyframes gscw-revealTouch{0%{margin-top:-200px}100%{margin-top:0}}@-webkit-keyframes gscw-typing{0%,100%,80%{opacity:0;-webkit-transform:scale(.8);transform:scale(.8)}40%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@keyframes gscw-typing{0%,100%,80%{opacity:0;-webkit-transform:scale(.8);transform:scale(.8)}40%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes gscw-notify{0%{-webkit-transform:scale(.1,.1);transform:scale(.1,.1);opacity:.3}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-notify{0%{-webkit-transform:scale(.1,.1);transform:scale(.1,.1);opacity:.3}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-highlight{100%{-webkit-transform:none;transform:none}0%,99%{-webkit-transform:translate(0,0);transform:translate(0,0)}20%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}60%{-webkit-transform:translate(-2.5px,0);transform:translate(-2.5px,0)}40%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}80%{-webkit-transform:translate(2.5px,0);transform:translate(2.5px,0)}}@keyframes gscw-highlight{100%{-webkit-transform:none;transform:none}0%,99%{-webkit-transform:translate(0,0);transform:translate(0,0)}20%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}60%{-webkit-transform:translate(-2.5px,0);transform:translate(-2.5px,0)}40%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}80%{-webkit-transform:translate(2.5px,0);transform:translate(2.5px,0)}}body.g-g3dq0y{overflow:hidden!important}body.g-n06nuk{overflow:hidden!important}.gnw3yh0{cursor:pointer}body.g-bv9vc7:before{-webkit-transition:height .5s cubic-bezier(.455,.03,.515,.955);transition:height .5s cubic-bezier(.455,.03,.515,.955);content:' ';display:block;visibility:hidden;height:0!important;padding:0;margin:0}.gekgnwa.g-bv9vc7:before{-webkit-transition:none!important;transition:none!important}body.g-bv9vc7.g-8uwwl2:before{height:42px!important}body.g-bv9vc7.gk60w6z:before{-webkit-transition:none!important;transition:none!important}w-div{display:block;vertical-align:inherit}.g-oocuo5,.gemuirm{-webkit-animation-name:gscw-highlight!important;animation-name:gscw-highlight!important;-webkit-animation-duration:.6s!important;animation-duration:.6s!important;-webkit-font-smoothing:subpixel-antialiased;-webkit-transform-origin:left;-ms-transform-origin:left;transform-origin:left}.gunpro3{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.gk60w6z *{-webkit-transition:none!important;transition:none!important}</style></head>
+ 
+<body class="post-template-default single single-post postid-369 single-format-standard g-bv9vc7 g-8uwwl2">
+
+<div id="page" class="hfeed">
+<div id="masthead" class="site-header" role="banner">
+
+   <hgroup>
+   		<h1 class="site-title">
+			<a href="http://www.kblearningacademy.com/" title="KB LEARNING ACADEMY" rel="home">KB LEARNING ACADEMY</a>	 		
+   		</h1>
+   		<h2 class="site-description">LEARN FROM THE PROFESSIONAL</h2>
+   </hgroup>
+   
+   <div id="left-header"></div>
+   <div id="right-header"></div>
+   
+   <!--     <form method="get" id="searchform" action="http://www.kblearningacademy.com/" role="search">
+        <label for="s" class="assistive-text">Search</label>
+        <input type="text" class="field" name="s" value="" id="s" placeholder="Search &hellip;" />
+        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Go" />
+    </form> -->
+   <div id="social-field">
+	<div class="social-profiles clearfix"><ul></ul></div> <!-- Social links -->   </div>
+   
+</div><!-- #masthead .site-header -->
+
+   <nav role="navigation" id="access" class="site-navigation main-navigation">
+   	<h5 class="menu-toggle"><a id="toggling" href="#">Menu</a></h5>
+		<div class="assistive-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+		<div class="menu"><ul id="menu-main" class="menu"><li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-71"><a href="http://www.kblearningacademy.com/">Home</a></li>
+<li id="menu-item-553" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-553"><a href="http://www.kblearningacademy.com/blog/">Blog</a></li>
+<li id="menu-item-678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-678"><a href="http://www.kblearningacademy.com/vlog/">Vlog</a></li>
+<li id="menu-item-538" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-538"><a href="http://www.kblearningacademy.com/about-me/">About Me</a></li>
+<li id="menu-item-437" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-437"><a href="http://github.kblearningacademy.com/">GitHub</a></li>
+</ul></div>   </nav><!-- .site-navigation .main-navigation -->
+   
+<div id="main" class="site-main"> 
+        <div id="primary" class="content-area">
+            <div id="content" class="site-content" role="main">
+ 
+             
+                    <nav role="navigation" id="nav-above" class="site-navigation post-navigation">
+        <h1 class="assistive-text">Post navigation</h1>
+ 
+     
+        <div class="nav-previous"><a href="http://www.kblearningacademy.com/create-puppet-modules-using-defined-types/" rel="prev"><span class="meta-nav">←</span> Create Puppet modules using Defined Types</a></div>        <div class="nav-next"><a href="http://www.kblearningacademy.com/how-to-configure-jenkins-job-with-runtime-parameters/" rel="next">How to Configure Jenkins Job with Runtime Parameters <span class="meta-nav">→</span></a></div> 
+     
+    </nav><!-- #nav-above -->
+     
+                 
+<article id="post-369" class="post-369 post type-post status-publish format-standard has-post-thumbnail hentry category-articles category-e-learning tag-jenkins">
+	
+	<div class="bluesip-avatar"></div><div class="arrow"></div> <!-- Showing nice avatar for current author -->
+	
+    <header class="entry-header">
+        <h1 class="entry-title">Configure Role Strategy Plugin in Jenkins</h1>
+ 
+        <div class="entry-meta">
+            Posted on <a href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/" title="2:52 pm" rel="bookmark"><time class="entry-date" datetime="2016-01-30T14:52:56+00:00" pubdate="">January 30, 2016</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="http://www.kblearningacademy.com/author/karannixsupport-com/" title="View all posts by Karan Brar" rel="author">Karan Brar</a></span></span>        </div><!-- .entry-meta -->
+    </header><!-- .entry-header -->
+ 
+    <div class="entry-content">
+        <p><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="Role-Strategy-Plugin-Jenkins_files/image_thumb.png" alt="image" border="0" width="244" height="105"></a> <br>Allow
+ me start the discussion by stating a real world problem, OR I must say a
+ real world need. Most of the times, we have multiple teams working on 
+different projects. As a matter of security, we don’t want any team 
+peeps in someone else’s projects. <br>If you’re using Jenkins for your 
+build promotions, you would certainly need to isolate various teams 
+working on different projects. It is obvious that you cannot setup 
+multiple Jenkins instances dedicated to each team. All of the projects 
+will be configured in Jenkins as multiple Jobs. <br>The best way to 
+grant access on specific projects to specific people is to use Role 
+Strategy Plugin. It is just a piece of cake to configure this Plugin and
+ it allows you to manage your Jenkins instance effectively. <br><br>So, here is a step-by-step guide to configure Role Strategy Plugin. <span id="more-369"></span><br><br>1. Login to Jenkins and click on Manage Jenkins <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image001.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image001" src="Role-Strategy-Plugin-Jenkins_files/clip_image001_thumb.png" alt="clip_image001" border="0" width="193" height="216"></a> <br><br>2. Click on “Configure Global Security” <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image002.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image002" src="Role-Strategy-Plugin-Jenkins_files/clip_image002_thumb.png" alt="clip_image002" border="0" width="244" height="116"></a> <br><br>3. Under “Authorization”, select “Role Based Strategy”. Save the changes. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image003.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image003" src="Role-Strategy-Plugin-Jenkins_files/clip_image003_thumb.png" alt="clip_image003" border="0" width="244" height="166"></a> <br><br>4. Click on “Manage Jenkins” once again and then click “Manage and Assign Roles” <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image004.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image004" src="Role-Strategy-Plugin-Jenkins_files/clip_image004_thumb.png" alt="clip_image004" border="0" width="244" height="116"></a> <br><br>5. There will be three options displayed, Select the first one. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image005.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image005" src="Role-Strategy-Plugin-Jenkins_files/clip_image005_thumb.png" alt="clip_image005" border="0" width="244" height="119"></a> <br><br>6. Click on Manage Roles and add a new Global Role. I call this role “Developer” <br><br>7. Provide <b>Read</b> access under “Overall” tab <br><br>8. Provide <b>Build</b> and <b>Cancel</b> access under “Job” tab. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image007.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image007" src="Role-Strategy-Plugin-Jenkins_files/clip_image007_thumb.jpg" alt="clip_image007" border="0" width="244" height="28"></a> <br><br>9. Add Project Roles based on each project. <br><br>10. There are two configurable items in Project Roles <br>a. Role name – This is usually name of the project (e.g. myproject) <br>b.
+ Pattern – It matches all the projects starting with same name. If you 
+have multiple instances of same project then you can specify something 
+like “myproject*” <br><br>11. Provide <b>Build</b>, <b>Cancel</b> and <b>Read</b> access under “Job” tab <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image009.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image009" src="Role-Strategy-Plugin-Jenkins_files/clip_image009_thumb.jpg" alt="clip_image009" border="0" width="244" height="34"></a> <br>For
+ any reason, if we have to provide “Configure” permission later on, we 
+can simple select “Configure” and it will get applied for all users. <br><br>12. Save the settings and click on “Assign Roles” from next screen. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image010.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image010" src="Role-Strategy-Plugin-Jenkins_files/clip_image010_thumb.png" alt="clip_image010" border="0" width="244" height="112"></a> <br><br>13. Add users in Global Roles and grant access on “developer” role. It will be applicable for all developers. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image011.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image011" src="Role-Strategy-Plugin-Jenkins_files/clip_image011_thumb.png" alt="clip_image011" border="0" width="244" height="127"></a> <br><br>14. Under “Project Roles”, add users and grant them access on specific projects, as applicable. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image012.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image012" src="Role-Strategy-Plugin-Jenkins_files/clip_image012_thumb.png" alt="clip_image012" border="0" width="233" height="120"></a> <br>One user can be a part of multiple projects. <br><br>15. Save the settings. <br><br>16. Now when that user logs in, he/she will be able to see only those projects which have been granted access on. <br><a href="http://www.kblearningacademy.com/wp-content/uploads/2016/01/clip_image014.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="clip_image014" src="Role-Strategy-Plugin-Jenkins_files/clip_image014_thumb.jpg" alt="clip_image014" border="0" width="244" height="47"></a> <br>As
+ per our configuration, user “testuser (TEST)” is only able to see 
+“myproject” project. He can only start and cancel the build process but 
+cannot configure anything.</p>            </div><!-- .entry-content -->
+ 
+    <footer class="entry-meta">
+        This entry was posted in <a href="http://www.kblearningacademy.com/category/articles/" rel="category tag">Articles</a>, <a href="http://www.kblearningacademy.com/category/e-learning/" rel="category tag">E-Learning</a> and tagged <a href="http://www.kblearningacademy.com/tag/jenkins/" rel="tag">jenkins</a>. Bookmark the <a href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/" title="Permalink to Configure Role Strategy Plugin in Jenkins" rel="bookmark">permalink</a>. 
+            </footer><!-- .entry-meta -->
+</article><!-- #post-369 --> 
+                    <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+        <h1 class="assistive-text">Post navigation</h1>
+ 
+     
+        <div class="nav-previous"><a href="http://www.kblearningacademy.com/create-puppet-modules-using-defined-types/" rel="prev"><span class="meta-nav">←</span> Create Puppet modules using Defined Types</a></div>        <div class="nav-next"><a href="http://www.kblearningacademy.com/how-to-configure-jenkins-job-with-runtime-parameters/" rel="next">How to Configure Jenkins Job with Runtime Parameters <span class="meta-nav">→</span></a></div> 
+     
+    </nav><!-- #nav-below -->
+     
+                 
+ 
+    <div id="comments">
+ 
+     
+            <h2 class="comments-title">
+            3 thoughts on “<span>Configure Role Strategy Plugin in Jenkins</span>”        </h2>
+ 
+         
+        <ol class="commentlist">
+                <li class="comment even thread-even depth-1" id="li-comment-46">
+        <article id="comment-46" class="comment">
+            <footer>
+                <div class="comment-author vcard">
+                                        <cite class="fn"><a href="http://fedorafans.com/" rel="external nofollow" class="url">hos7ein</a></cite> <span class="says">says:</span>                </div><!-- .comment-author .vcard -->
+                 
+                <div class="comment-meta commentmetadata">
+                    <a href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/#comment-46"><time pubdate="" datetime="2016-10-24T14:51:51+00:00">
+                    October 24, 2016 at 2:51 pm                    </time></a>
+                                    </div><!-- .comment-meta .commentmetadata -->
+            </footer>
+ 
+            <div class="comment-content">hi
+tnx for this Article.
+good job <img draggable="false" class="emoji" alt="😉" src="Role-Strategy-Plugin-Jenkins_files/1f609.svg"></div>
+ 
+            <div class="reply">
+                            </div><!-- .reply -->
+        </article><!-- #comment-## -->
+ 
+    </li><!-- #comment-## -->
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-48">
+        <article id="comment-48" class="comment">
+            <footer>
+                <div class="comment-author vcard">
+                                        <cite class="fn">satish</cite> <span class="says">says:</span>                </div><!-- .comment-author .vcard -->
+                 
+                <div class="comment-meta commentmetadata">
+                    <a href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/#comment-48"><time pubdate="" datetime="2016-11-02T06:56:23+00:00">
+                    November 2, 2016 at 6:56 am                    </time></a>
+                                    </div><!-- .comment-meta .commentmetadata -->
+            </footer>
+ 
+            <div class="comment-content">I installed the Role-Based Strategy plugin but I didn’t get the option to manage roles in manage jenkins.</div>
+ 
+            <div class="reply">
+                            </div><!-- .reply -->
+        </article><!-- #comment-## -->
+ 
+    </li><!-- #comment-## -->
+    <li class="comment even thread-even depth-1" id="li-comment-58">
+        <article id="comment-58" class="comment">
+            <footer>
+                <div class="comment-author vcard">
+                                        <cite class="fn"><a href="http://visualpath.in/devops-online-training.html" rel="external nofollow" class="url">devops training</a></cite> <span class="says">says:</span>                </div><!-- .comment-author .vcard -->
+                 
+                <div class="comment-meta commentmetadata">
+                    <a href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/#comment-58"><time pubdate="" datetime="2016-11-25T05:47:45+00:00">
+                    November 25, 2016 at 5:47 am                    </time></a>
+                                    </div><!-- .comment-meta .commentmetadata -->
+            </footer>
+ 
+            <div class="comment-content">Wow. That is so elegant and 
+logical and clearly explained. Brilliantly goes through what could be a 
+complex process and makes it obvious.</div>
+ 
+            <div class="reply">
+                            </div><!-- .reply -->
+        </article><!-- #comment-## -->
+ 
+    </li><!-- #comment-## -->
+        </ol><!-- .commentlist -->
+ 
+         
+     
+     
+    	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.kblearningacademy.com/configure-role-strategy-plugin-in-jenkins/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://www.kblearningacademy.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name</label> <input id="author" name="author" size="30" maxlength="245" type="text"></p>
+<p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" size="30" maxlength="100" aria-describedby="email-notes" type="text"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" size="30" maxlength="200" type="text"></p>
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="369" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="e3b277df20" type="hidden"></p><p class="comment-subscription-form"><input name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"></p>			<input id="ak_js" name="ak_js" value="1497421452077" type="hidden"></form>
+			</div><!-- #respond -->
+	 
+</div><!-- #comments .comments-area --> 
+             
+            </div><!-- #content .site-content -->
+        </div><!-- #primary .content-area -->
+ 
+<div id="secondary" class="widget-area" role="complementary">
+        <aside id="search-2" class="widget widget_search">    <form method="get" id="searchform" action="http://www.kblearningacademy.com/" role="search">
+        <label for="s" class="assistive-text">Search</label>
+        <input class="field" name="s" id="s" placeholder="Search …" type="text">
+        <input class="submit" name="submit" id="searchsubmit" value="Go" type="submit">
+    </form></aside><aside id="ufwp_single_widget-2" class="widget widget_ufwp_single_widget"><div class="left-arrow-widget"></div><h3 class="widget-title">$10 COURSES – USE CODE KB2017TEN</h3><div class="right-arrow-widget"></div><div class="ufwp"><div class="ufwp-widget-small">                        <div class="ufwp-course" data-ufwp-course-id="955696">                <a class="ufwp-course__link" href="https://www.udemy.com/continuous-integration-and-deployment-using-jenkins-and-aws/" target="_blank" rel="nofollow" title="Continuous Integration and Deployment using Jenkins and AWS">                    <span class="ufwp-course__img" style="background-image: url('https://udemy-images.udemy.com/course/75x75/955696_9575_3.jpg');"></span>                    <span class="ufwp-course__content">                        <span class="ufwp-course__title">Continuous Integration and Deployment using Jenkins and AWS</span>                        <span class="ufwp-course__footer">                            <span class="ufwp-course__price">$40</span>                            <span class="ufwp-course__rating"><span class="ufwp-star-rating"><span style="width: 64%;"></span></span></span>                        </span>                    </span>                </a>            </div>                                <div class="ufwp-course" data-ufwp-course-id="845946">                <a class="ufwp-course__link" href="https://www.udemy.com/manage-aws-core-services-using-python-and-boto3/" target="_blank" rel="nofollow" title="Manage AWS Using Python: Core Services">                    <span class="ufwp-course__img" style="background-image: url('https://udemy-images.udemy.com/course/75x75/845946_caae_2.jpg');"></span>                    <span class="ufwp-course__content">                        <span class="ufwp-course__title">Manage AWS Using Python: Core Services</span>                        <span class="ufwp-course__footer">                            <span class="ufwp-course__price">$30</span>                            <span class="ufwp-course__rating"><span class="ufwp-star-rating"><span style="width: 84%;"></span></span></span>                        </span>                    </span>                </a>            </div>                                <div class="ufwp-course" data-ufwp-course-id="385444">                <a class="ufwp-course__link" href="https://www.udemy.com/getting-started-with-puppet/" target="_blank" rel="nofollow" title="Getting Started with Puppet">                    <span class="ufwp-course__img" style="background-image: url('https://udemy-images.udemy.com/course/75x75/385444_6977_3.jpg');"></span>                    <span class="ufwp-course__content">                        <span class="ufwp-course__title">Getting Started with Puppet</span>                        <span class="ufwp-course__footer">                            <span class="ufwp-course__price">$30</span>                            <span class="ufwp-course__rating"><span class="ufwp-star-rating"><span style="width: 78%;"></span></span></span>                        </span>                    </span>                </a>            </div>                                <div class="ufwp-course" data-ufwp-course-id="64098">                <a class="ufwp-course__link" href="https://www.udemy.com/cloud-computing-with-amazon-web-services-part-1/" target="_blank" rel="nofollow" title="Cloud Computing With Amazon Web Services">                    <span class="ufwp-course__img" style="background-image: url('https://udemy-images.udemy.com/course/75x75/64098_8012_7.jpg');"></span>                    <span class="ufwp-course__content">                        <span class="ufwp-course__title">Cloud Computing With Amazon Web Services</span>                        <span class="ufwp-course__footer">                            <span class="ufwp-course__price">Free</span>                            <span class="ufwp-course__rating"><span class="ufwp-star-rating"><span style="width: 84%;"></span></span></span>                        </span>                    </span>                </a>            </div>            </div></div></aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><div class="left-arrow-widget"></div><h3 class="widget-title">Tags</h3><div class="right-arrow-widget"></div><div class="tagcloud"><a href="http://www.kblearningacademy.com/tag/automation/" class="tag-link-12 tag-link-position-1" title="1 topic" style="font-size: 8pt;">automation</a>
+<a href="http://www.kblearningacademy.com/tag/aws/" class="tag-link-5 tag-link-position-2" title="3 topics" style="font-size: 18.5pt;">aws</a>
+<a href="http://www.kblearningacademy.com/tag/aws-lambda/" class="tag-link-24 tag-link-position-3" title="1 topic" style="font-size: 8pt;">AWS Lambda</a>
+<a href="http://www.kblearningacademy.com/tag/big-data/" class="tag-link-25 tag-link-position-4" title="1 topic" style="font-size: 8pt;">Big Data</a>
+<a href="http://www.kblearningacademy.com/tag/boto/" class="tag-link-7 tag-link-position-5" title="2 topics" style="font-size: 14.3pt;">boto</a>
+<a href="http://www.kblearningacademy.com/tag/cloud-computing/" class="tag-link-9 tag-link-position-6" title="3 topics" style="font-size: 18.5pt;">cloud computing</a>
+<a href="http://www.kblearningacademy.com/tag/devops/" class="tag-link-13 tag-link-position-7" title="2 topics" style="font-size: 14.3pt;">devops</a>
+<a href="http://www.kblearningacademy.com/tag/e-learning/" class="tag-link-14 tag-link-position-8" title="1 topic" style="font-size: 8pt;">e-learning</a>
+<a href="http://www.kblearningacademy.com/tag/ec2/" class="tag-link-8 tag-link-position-9" title="2 topics" style="font-size: 14.3pt;">ec2</a>
+<a href="http://www.kblearningacademy.com/tag/jenkins/" class="tag-link-16 tag-link-position-10" title="2 topics" style="font-size: 14.3pt;">jenkins</a>
+<a href="http://www.kblearningacademy.com/tag/linux/" class="tag-link-10 tag-link-position-11" title="4 topics" style="font-size: 22pt;">linux</a>
+<a href="http://www.kblearningacademy.com/tag/puppet/" class="tag-link-11 tag-link-position-12" title="4 topics" style="font-size: 22pt;">puppet</a>
+<a href="http://www.kblearningacademy.com/tag/python/" class="tag-link-6 tag-link-position-13" title="2 topics" style="font-size: 14.3pt;">python</a>
+<a href="http://www.kblearningacademy.com/tag/udemy/" class="tag-link-15 tag-link-position-14" title="1 topic" style="font-size: 8pt;">udemy</a>
+<a href="http://www.kblearningacademy.com/tag/wordpress-themes/" class="tag-link-23 tag-link-position-15" title="1 topic" style="font-size: 8pt;">wordpress themes</a></div>
+</aside></div><!-- #secondary .widget-area --></div>
+     <!-- #main .site-main -->     
+  <div id="colophon" class="site-footer" role="contentinfo">
+
+  	   	 
+  	   	 	
+  	 
+    <div class="site-credits">
+    	        <a href="http://wordpress.org/" title="A Semantic Personal Publishing Platform" rel="generator">
+        Copyright © 2016 kblearningacademy.com</a>
+        
+	
+        
+		<a href="http://mkhuda.com/themes/bluesip" title="Mkhuda" rel="generator">
+        </a> 
+	    </div><!-- .site-info -->
+  </div><!-- #colophon .site-footer -->
+    
+</div>
+		<style type="text/css">
+			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+			.dwqa-questions-list .dwqa-question-item {
+				padding-left: 70px;
+			}
+
+			.dwqa-questions-list .dwqa-question-item .avatar {
+				position: static;
+				width: 12px;
+				height: 12px;
+				margin-right: 5px;
+				margin-top: 0;
+				display: inline-block;
+			}
+
+			.dwqa-question-item .dwqa-status {
+				position: absolute;
+				left: 15px;
+				top: 50%;
+				width: 36px;
+				height: 36px;
+				margin-top: -18px;
+				border-radius: 36px;
+				text-indent: -9999px;
+				padding: 0;
+				background: none;
+				box-shadow: 0 0 0 1px #e67e22 inset;
+			}
+
+			.dwqa-question-item .dwqa-status:after {
+				content: "\f128";
+				display: block;
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: inherit;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+				color: #e67e22;
+				text-indent: 0;
+				font-size: 18px;
+				width: 36px;
+				height: 36px;
+				line-height: 36px;
+				text-align: center;
+				top: 0;
+				position: absolute;
+			}
+
+			.dwqa-question-item .dwqa-status-closed {
+				box-shadow: 0 0 0 1px #666 inset;
+			}
+
+			.dwqa-question-item .dwqa-status-closed:after {
+				color: #666;
+				content: "\f023";
+			}
+
+			.dwqa-question-item .dwqa-status-resolved {
+				box-shadow: 0 0 0 1px #578824 inset;
+			}
+
+			.dwqa-question-item .dwqa-status-resolved:after {
+				color: #578824;
+				content: "\f00c";
+			}
+
+			.dwqa-question-item .dwqa-status-answered {
+				box-shadow: 0 0 0 1px #1ba1e2 inset;
+			}
+
+			.dwqa-question-item .dwqa-status-answered:after {
+				color: #1ba1e2;
+				content: "\f112";
+				font-size: 14px;
+			}
+		</style>
+		<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/32741/script.js');
+</script>	<div style="display:none">
+	</div>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/form.js"></script>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/navigation.js"></script>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/wp-embed.js"></script>
+<script type="text/javascript" src="Role-Strategy-Plugin-Jenkins_files/e-201724.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.9.7',blog:'88252178',post:'369',tz:'0',srv:'www.kblearningacademy.com'} ]);
+	_stq.push([ 'clickTrackerInit', '88252178', '369' ]);
+</script>
+
+<img src="Role-Strategy-Plugin-Jenkins_files/g.gif" alt=":)" id="wpstats" width="6" height="5"><w-div id="gmj3iex" class="g-2bpne5 g-lc0i9h g-fu3a0u g-rzvors g3evrwy gg9e4nk"><style media="print" type="text/css">#gmj3iex{display:none!important}</style><style media="handheld,screen,projection,tv" type="text/css">#gmj3iex{margin:0;padding:0;border:0;box-sizing:content-box!important;box-shadow:none;background-clip:padding-box!important;line-height:1.2;vertical-align:middle;text-align:left;font-weight:400;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif;font-style:normal;letter-spacing:normal;text-shadow:none;text-transform:none;float:none;z-index:2147483635;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);filter:none}#gmj3iex
+ a,#gmj3iex b,#gmj3iex div,#gmj3iex em,#gmj3iex form,#gmj3iex 
+h1,#gmj3iex i,#gmj3iex img,#gmj3iex label,#gmj3iex li,#gmj3iex 
+ol,#gmj3iex p,#gmj3iex span,#gmj3iex strong,#gmj3iex u,#gmj3iex 
+ul{margin:0;padding:0;border:0;border-radius:0;vertical-align:inherit;width:auto;height:auto;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:inherit;line-height:inherit;letter-spacing:normal;color:inherit;background-color:transparent;position:static;font-size:inherit;font-weight:inherit;font-style:inherit;text-transform:inherit;text-decoration:inherit;text-align:inherit;float:none;outline:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}#gmj3iex
+ a,#gmj3iex a:active,#gmj3iex 
+a:focus{-webkit-tap-highlight-color:rgba(0,0,0,0);text-decoration:none}#gmj3iex
+ img{display:block}#gmj3iex 
+.g-ppp3zl{vertical-align:baseline;line-height:1.35}#gmj3iex .g-ppp3zl 
+b,#gmj3iex .g-ppp3zl strong{font-weight:700}#gmj3iex .g-ppp3zl 
+em,#gmj3iex .g-ppp3zl i{font-style:italic}#gmj3iex .g-ppp3zl 
+u{text-decoration:underline}#gmj3iex .g-ppp3zl p{margin:0 0 10px 
+0}#gmj3iex .g-ppp3zl a{text-decoration:underline}#gmj3iex 
+.g-ppp3zl.gt6sqj{display:inline;white-space:nowrap;margin:0;padding:0}#gmj3iex
+ .g-ppp3zl.gt6sqj 
+*{white-space:nowrap;display:inline;margin:0;padding:0}#gmj3iex 
+::-webkit-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gmj3iex
+ :-moz-placeholder,#gmj3iex 
+::-moz-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gmj3iex
+ 
+input:-ms-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gmj3iex
+ [placeholder]{text-overflow:ellipsis}#gmj3iex 
+input:-moz-placeholder,#gmj3iex input:-ms-input-placeholder,#gmj3iex 
+input::-moz-placeholder{text-overflow:ellipsis}#gmj3iex input,#gmj3iex 
+input:focus,#gmj3iex select,#gmj3iex select:focus,#gmj3iex 
+textarea,#gmj3iex 
+textarea:focus{margin:0!important;padding:0;border:0;text-align:left!important;border-radius:3px!important;background:0
+ 
+0;vertical-align:middle;width:auto!important;height:auto!important;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif!important;background-clip:padding-box!important;line-height:1!important;letter-spacing:normal!important;outline:0
+ none!important;font-size:14px!important;float:none}#gmj3iex 
+button,#gmj3iex input[type=submit]{margin:0;padding:0;background:0 
+0;width:auto;height:auto;text-shadow:none!important;box-shadow:none!important;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif;line-height:1;letter-spacing:normal;float:none;font-weight:700;text-decoration:none;display:inline-block;text-align:center;border-radius:2px;vertical-align:middle;cursor:pointer;background-image:none;border:0;white-space:nowrap;outline:0;font-family:inherit;text-transform:none;overflow:visible}#gmj3iex
+ button:active,#gmj3iex button:disabled,#gmj3iex button:focus,#gmj3iex 
+button:hover,#gmj3iex input[type=submit]:active,#gmj3iex 
+input[type=submit]:disabled,#gmj3iex input[type=submit]:focus,#gmj3iex 
+input[type=submit]:hover{outline:0;text-decoration:none}#gmj3iex 
+button::-moz-focus-inner,#gmj3iex 
+input[type=submit]::-moz-focus-inner{padding:0;border:0}#gmj3iex 
+textarea{line-height:1.2;overflow:auto;resize:none!important}#gmj3iex 
+input:-webkit-autofill,#gmj3iex 
+textarea:-webkit-autofill{background-color:transparent!important;-webkit-box-shadow:0
+ 0 0 1000px #fff inset!important}#gmj3iex 
+*{box-sizing:content-box!important;-webkit-filter:none;filter:none}#gmj3iex
+ form.g-z3gfk{font-size:14px}#gmj3iex form.g-z3gfk 
+.gte51ok{-webkit-transition:opacity 1s;transition:opacity 
+1s;opacity:1}#gmj3iex form.g-z3gfk .g4mvksh{text-align:left;margin:0 0 
+15px}#gmj3iex form.g-z3gfk .g4mvksh:last-child{margin:0}#gmj3iex 
+form.g-z3gfk .g4mvksh.gg9e4nk{display:block;margin:0}#gmj3iex 
+form.g-z3gfk .g4mvksh.gsuttxf{display:none}#gmj3iex form.g-z3gfk 
+.g-ok25aq{text-align:left;color:#ffffff;font-size:14px;line-height:1.15;display:block;margin:0
+ 0 4px 
+0;white-space:normal;overflow-wrap:break-word;word-wrap:break-word;word-break:normal}#gmj3iex
+ form.g-z3gfk .g-8yxy04{position:relative}#gmj3iex form.g-z3gfk 
+.g-g9cga9,#gmj3iex form.g-z3gfk .g-g9cga9:focus,#gmj3iex form.g-z3gfk 
+.g-jbrq5a,#gmj3iex form.g-z3gfk 
+.g-jbrq5a:focus{display:block;width:100%!important;max-width:100%!important;box-sizing:border-box!important;border:solid
+ 1px 
+#37abc8!important;background-color:#ffffff!important;font-size:inherit!important;padding:0
+ 
+8px!important;color:#333333!important;line-height:1.18!important}#gmj3iex
+ form.g-z3gfk .g-g9cga9:-ms-input-placeholder,#gmj3iex form.g-z3gfk 
+.g-g9cga9:focus:-ms-input-placeholder,#gmj3iex form.g-z3gfk 
+.g-jbrq5a:-ms-input-placeholder,#gmj3iex form.g-z3gfk 
+.g-jbrq5a:focus:-ms-input-placeholder{color:#cacaca!important}#gmj3iex 
+form.g-z3gfk .g-jbrq5a,#gmj3iex form.g-z3gfk .g-jbrq5a:focus,#gmj3iex 
+form.g-z3gfk input.g-g9cga9,#gmj3iex form.g-z3gfk 
+input.g-g9cga9:focus{box-sizing:border-box!important;height:32px!important;line-height:32px!important}#gmj3iex
+ form.g-z3gfk textarea.g-g9cga9,#gmj3iex form.g-z3gfk 
+textarea.g-g9cga9:focus{padding:8px 8px 8px 6px!important}#gmj3iex 
+form.g-z3gfk .gi9nr5y{background-color:#ffffff!important;border:solid 
+1px 
+#37abc8!important;border-radius:3px!important;position:relative}#gmj3iex
+ form.g-z3gfk 
+.g-6k0zih{display:block;position:absolute;top:0;bottom:0;left:0;right:0;font-size:inherit!important;padding:8px
+ 40px 8px 
+8px!important;color:#333333!important;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#gmj3iex
+ form.g-z3gfk 
+.g-6k0zih:after{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;content:"\e81b";position:absolute;right:6px;top:6px}#gmj3iex
+ form.g-z3gfk 
+.g-6k0zih:after:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ form.g-z3gfk .g-ftl5os,#gmj3iex form.g-z3gfk 
+.g-ftl5os:focus{display:block;width:100%!important;max-width:100%!important;box-sizing:border-box!important;font-size:inherit!important;padding:8px!important;color:#333333!important;background-color:transparent!important;line-height:1.18!important;opacity:0;text-indent:.01px;text-overflow:ellipsis;-webkit-appearance:none;-moz-appearance:none;appearance:none}#gmj3iex
+ form.g-z3gfk .g-ftl5os option,#gmj3iex form.g-z3gfk .g-ftl5os:focus 
+option{color:#333333!important;background-color:#ffffff!important;border-radius:0!important}#gmj3iex
+ form.g-z3gfk 
+.g4jil0{font-size:inherit;white-space:normal;display:block;position:relative}#gmj3iex
+ form.g-z3gfk .g4jil0 .g-yhetjd{margin:0 0 4px 
+0;text-align:left;cursor:pointer;line-height:1.2;display:block;position:relative;min-height:14px;border-radius:2px;padding:10px;overflow:hidden;background:#5fbcd3!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important}#gmj3iex form.g-z3gfk .g4jil0 
+.g-yhetjd:hover{background:#4bb3ce!important}#gmj3iex form.g-z3gfk 
+.g4jil0 .g-yhetjd .g-jbrq5a{border-radius:2px!important}#gmj3iex 
+form.g-z3gfk .g4jil0 .g-yhetjd .gu6sno5{padding:0 
+23px;display:inline-block;white-space:normal;overflow-wrap:break-word;word-wrap:break-word;word-break:normal}#gmj3iex
+ form.g-z3gfk .g4jil0 
+.g-8i0v02{visibility:hidden;position:absolute;left:10px;top:10px;font-size:inherit}#gmj3iex
+ form.g-z3gfk .g4jil0 .g-8i0v02,#gmj3iex form.g-z3gfk .g4jil0 
+.g-8i0v02:active,#gmj3iex form.g-z3gfk .g4jil0 .g-8i0v02:focus,#gmj3iex 
+form.g-z3gfk .g4jil0 
+.g-8i0v02:hover{margin:0!important;padding:0!important;background:0 
+0!important}#gmj3iex form.g-z3gfk .g4jil0 
+.g-iz3931{display:block}#gmj3iex form.g-z3gfk .g4jil0 
+.g-iz3931:after,#gmj3iex form.g-z3gfk .g4jil0 
+.g-iz3931:before{position:absolute;left:10px;top:10px;font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:inherit}#gmj3iex
+ form.g-z3gfk .g4jil0 .g-iz3931:after:before,#gmj3iex form.g-z3gfk 
+.g4jil0 
+.g-iz3931:before:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ form.g-z3gfk .g4jil0.glt92fg 
+.g-8i0v02.g-vx4wid+.g-iz3931:after{color:#333!important;content:"\e826"}#gmj3iex
+ form.g-z3gfk .g4jil0.glt92fg 
+.g-8i0v02+.g-iz3931:before{color:#fff!important;content:"\e824"}#gmj3iex
+ form.g-z3gfk .g4jil0.g-tkfmpn 
+.g-8i0v02.g-vx4wid+.g-iz3931:after{color:#333!important;content:"\e822"}#gmj3iex
+ form.g-z3gfk .g4jil0.g-tkfmpn 
+.g-8i0v02+.g-iz3931:before{color:#fff!important;content:"\e823"}#gmj3iex
+ form.g-z3gfk .g4jil0 .g-jbrq5a{display:none}#gmj3iex form.g-z3gfk 
+.g4jil0 .g-8i0v02.g-vx4wid+.g-iz3931 .g-jbrq5a,#gmj3iex form.g-z3gfk 
+.g4jil0 .g-oocuo5 .g-8i0v02+.g-iz3931 .g-jbrq5a{display:block}#gmj3iex 
+form.g-z3gfk .g4jil0 .g-jbrq5a.g-oocuo5,#gmj3iex form.g-z3gfk .g4jil0 
+.g-jbrq5a.gtfrgtd{display:block}#gmj3iex form.g-z3gfk .g4jil0 
+.g-jbrq5a,#gmj3iex form.g-z3gfk .g4jil0 
+.g-jbrq5a:focus{margin-top:10px!important;border:none!important}#gmj3iex
+ form.g-z3gfk .giv1y8n{margin:5px 0 0}#gmj3iex form.g-z3gfk 
+.g7v0lj8{color:#ffffff!important;background:#73c4d9!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important;box-sizing:border-box!important;font-size:0;width:100%;display:block;position:relative;padding:0
+ 26px;text-align:left}#gmj3iex form.g-z3gfk .g7v0lj8:active,#gmj3iex 
+form.g-z3gfk 
+.g7v0lj8:hover{background:#6bc1d7!important;color:#ffffff!important}#gmj3iex
+ form.g-z3gfk 
+.g-wdq0y1{font-size:14px;font-weight:700;vertical-align:middle;line-height:32px;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;max-width:100%}#gmj3iex
+ form.g-z3gfk 
+.g-50alkp{color:#ffffff!important;background:#73c4d9!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important;box-sizing:border-box!important;width:32px;height:32px;font-size:0;border-radius:2px
+ 0 0 2px;display:inline-block;padding:5px;border-right:solid 1px 
+#6bc1d7}#gmj3iex form.g-z3gfk .g-50alkp:active,#gmj3iex form.g-z3gfk 
+.g-50alkp:hover{background:#6bc1d7!important;color:#ffffff!important}#gmj3iex
+ form.g-z3gfk 
+.g-50alkp:before{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;content:"\e829"}#gmj3iex
+ form.g-z3gfk 
+.g-50alkp:before:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ form.g-z3gfk .g-50alkp+.g7v0lj8{border-radius:0 2px 2px 0}#gmj3iex 
+form.g-z3gfk.g-e671kv.g-66bx8e .g-n1i1uw 
+.g-50alkp+.g7v0lj8{border-radius:2px;max-width:100%}#gmj3iex 
+form.g-z3gfk.g-e671kv .g-n1i1uw 
+.g-50alkp+.g7v0lj8{max-width:85%}#gmj3iex form.g-z3gfk.g-e671kv.gblc61a 
+.g7v0lj8{padding:0 26px}#gmj3iex form.g-z3gfk.g-e671kv.gblc61a 
+.g7v0lj8:after{content:none}#gmj3iex form.g-z3gfk.g-e671kv.g-66bx8e 
+.g-50alkp{display:none}#gmj3iex form.g-z3gfk.g-e671kv .g7v0lj8{padding:0
+ 36px 0 26px;position:relative}#gmj3iex form.g-z3gfk.g-e671kv 
+.g7v0lj8:after{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;content:"\e82a";position:absolute;right:7px;top:50%;margin-top:-11px;vertical-align:middle}#gmj3iex
+ form.g-z3gfk.g-e671kv 
+.g7v0lj8:after:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ form.g-z3gfk 
+.g-n1i1uw{display:table;width:100%;table-layout:fixed;margin:16px 0 
+0}#gmj3iex form.g-z3gfk .g-n1i1uw 
+.g-bquhmf{text-align:left!important;display:table-cell!important;margin:0!important;font-size:12px!important;font-weight:400!important;padding-right:10px!important;width:90px!important;white-space:normal!important}#gmj3iex
+ form.g-z3gfk .g-n1i1uw 
+.giv1y8n{margin:0;display:table-cell;text-align:right;overflow:hidden;white-space:nowrap}#gmj3iex
+ form.g-z3gfk .g-n1i1uw .giv1y8n 
+.g7v0lj8{display:inline-block;width:auto;max-width:100%;text-align:left}#gmj3iex
+ form.g-z3gfk .g2pi9hc{margin:16px 0 0}#gmj3iex form.g-z3gfk .g7olutx 
+textarea.gppef0k{display:none;margin-top:16px!important}#gmj3iex 
+form.g-z3gfk .g7olutx textarea.gppef0k.g-oocuo5,#gmj3iex form.g-z3gfk 
+.g7olutx textarea.gppef0k.gtfrgtd,#gmj3iex form.g-z3gfk .g7olutx 
+textarea.gppef0k.gcp0g0f{display:block}#gmj3iex form.g-z3gfk 
+.g-pd2euz{font-size:0;white-space:nowrap}#gmj3iex form.g-z3gfk 
+.gyhhfl4{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;cursor:pointer;margin-right:4px}#gmj3iex
+ form.g-z3gfk 
+.gyhhfl4:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ form.g-z3gfk .gyhhfl4:before{content:"\e82b"}#gmj3iex form.g-z3gfk 
+.gyhhfl4.gpgbmjf:before{content:"\e82c"}.g2kq6e #gmj3iex form.g-z3gfk 
+.g-wdq0y1{max-width:200px\9}.g2kq6e #gmj3iex form.g-z3gfk 
+.g7v0lj8{max-width:252px\9}.g2kq6e #gmj3iex form.g-z3gfk .g4jil0 
+.g-8i0v02{visibility:visible\9}.g2kq6e #gmj3iex form.g-z3gfk .g4jil0 
+.g-iz3931:after,.g2kq6e #gmj3iex form.g-z3gfk .g4jil0 
+.g-iz3931:before{display:none\9}.g2kq6e #gmj3iex form.g-z3gfk 
+.g-6k0zih{display:none\9}#gmj3iex 
+.gjfgkst{display:none;text-align:left;z-index:2147483636;background-clip:padding-box}#gmj3iex
+ 
+.g-k96vtt{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-animation:gscw-flipTy
+ .6s;animation:gscw-flipTy 
+.6s;-webkit-backface-visibility:visible!important;backface-visibility:visible!important;text-align:center;font-size:120px;display:block}#gmj3iex
+ 
+.g-k96vtt:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ .g-k96vtt:before{content:"\e80b"}.g-ebo384#gmj3iex 
+.gaw11b3{display:none}.g-ebo384#gmj3iex 
+.gjfgkst{height:160px;-webkit-animation:gscw-fadeIn 
+.6s;animation:gscw-fadeIn 
+.6s;display:table;width:100%;table-layout:fixed}.gk60w6z.g-ebo384#gmj3iex
+ 
+.gjfgkst{-webkit-animation:none!important;animation:none!important}.g-ebo384#gmj3iex
+ 
+.gjfgkst>.gipytpk{display:table-cell;vertical-align:middle}.g4tdq3b#gmj3iex
+ .gjfgkst{opacity:1}#gmj3iex .g-vp9ays{display:none!important}#gmj3iex 
+.g99e3f6{border-top-left-radius:2px;border-top-right-radius:2px}#gmj3iex
+ 
+.gvi4y51{min-width:300px;max-width:650px;width:300px;position:relative}#gmj3iex
+ .gvi4y51 
+.g-fskfi6{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;color:#ffffff!important;padding:10px;-webkit-transition:-webkit-transform
+ .5s;transition:-webkit-transform .5s;transition:transform 
+.5s;transition:transform .5s,-webkit-transform 
+.5s;position:absolute;right:0;top:0;overflow:hidden}#gmj3iex .gvi4y51 
+.g-fskfi6:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ .gvi4y51 .g-fskfi6:before{content:"\e81f"}#gmj3iex .gvi4y51.g-8itk7f 
+.g-fskfi6{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}#gmj3iex
+ .gvi4y51 .g99e3f6{display:block;width:100%;position:relative}#gmj3iex 
+.gvi4y51 .g99e3f6 .gyjod1y{display:block;padding:0 42px 0 
+16px;line-height:42px}#gmj3iex .gvi4y51 
+.g99e3f6{color:#ffffff!important;background:#37abc8!important}#gmj3iex 
+.gvi4y51 .g99e3f6:active,#gmj3iex .gvi4y51 
+.g99e3f6:hover{background:#4bb3ce!important;color:#ffffff!important}#gmj3iex
+ .gvi4y51 
+.g99e3f6:focus{text-decoration:none!important;outline:0!important}#gmj3iex
+ .gvi4y51.g-8itk7f 
+.g99e3f6:hover{color:#ffffff!important;background:#37abc8!important}#gmj3iex
+ .g-eg06vu{padding:16px}#gmj3iex .g-eg06vu 
+.g-og738h{display:none!important}#gmj3iex .g-eg06vu .g-n1i1uw 
+.g-bquhmf{width:90px}#gmj3iex{display:none;white-space:nowrap;position:fixed;font-size:0;max-width:80%}#gmj3iex.gg9e4nk{display:inline}@media
+ screen and (min-width:736px){#gmj3iex{max-width:60%}}#gmj3iex 
+.gvi4y51{color:#ffffff!important;background:#37abc8!important;border-radius:2px
+ 2px 0 0;position:relative;display:inline-block}.gk60w6z#gmj3iex 
+.gvi4y51{-webkit-transition:none!important;transition:none!important}#gmj3iex.g-vu0smf{left:50px}#gmj3iex.g-rzvors{right:50px}#gmj3iex.g3evrwy{top:100%;margin-top:-42px}#gmj3iex.g3evrwy
+ .gvi4y51{bottom:-42px;-webkit-transition:bottom .5s 
+cubic-bezier(.455,.03,.515,.955);transition:bottom .5s 
+cubic-bezier(.455,.03,.515,.955)}.gk60w6z#gmj3iex.g3evrwy 
+.gvi4y51{-webkit-transition:none!important;transition:none!important}#gmj3iex.g3evrwy
+ .gvi4y51.gg9e4nk{bottom:0}#gmj3iex.g3evrwy 
+.g99e3f6:first-child{border-top-left-radius:2px}#gmj3iex.g3evrwy 
+.g99e3f6:last-child{border-top-right-radius:2px}#gmj3iex 
+.g99e3f6{color:#ffffff!important;background:#37abc8!important;-webkit-transition:background-color
+ .2s ease-out;transition:background-color .2s 
+ease-out;text-decoration:none;display:inline-block;white-space:nowrap;font-size:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}#gmj3iex
+ .g99e3f6:active,#gmj3iex 
+.g99e3f6:hover{background:#4bb3ce!important;color:#ffffff!important}#gmj3iex
+ 
+.g99e3f6:focus{text-decoration:none!important;outline:0!important}#gmj3iex
+ .g99e3f6:hover{margin-top:-4px;padding-bottom:4px}#gmj3iex 
+.g99e3f6.g-c10tml:hover{margin-top:0;padding-bottom:0}#gmj3iex 
+.glz1smi{position:relative}#gmj3iex .glz1smi.gd9zju0 
+.gyjod1y{display:none}#gmj3iex .gyjod1y{font-weight:700;padding:0 16px 0
+ 
+0;font-size:14px;vertical-align:middle;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.2;max-width:300px;display:inline-block;text-align:left}#gmj3iex
+ 
+.g-eg06vu{color:#ffffff!important;background:#37abc8!important;border-top:solid
+ 1px 
+#5fbcd3;text-align:left;position:relative;box-sizing:border-box!important;overflow:hidden}#gmj3iex
+ .g-rx6rn2,#gmj3iex .gf227nj,#gmj3iex 
+.g-ke4km5{text-align:left;font-size:14px;line-height:1.35;margin:0 0 
+16px;white-space:normal;overflow-wrap:break-word;word-wrap:break-word;word-break:normal}#gmj3iex
+ .g-ke4km5{font-weight:700}#gmj3iex 
+.g2pi9hc{color:#ffffff!important;text-align:left;font-size:12px;white-space:normal;overflow-wrap:break-word;word-wrap:break-word;word-break:normal}#gmj3iex
+ 
+.g-vp9ays{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;padding:10px;vertical-align:middle}#gmj3iex
+ 
+.g-vp9ays:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#gmj3iex
+ 
+.g-n848go{font-size:0;background:#5fbcd3;height:42px;width:1px;display:inline-block;vertical-align:bottom}#gmj3iex
+ 
+.g-bquhmf{text-indent:0!important;text-align:left!important;display:block!important;margin:16px
+ 0 
+0!important;font-size:12px!important;font-weight:400!important;text-decoration:none!important;color:#ffffff!important;-webkit-transition:opacity
+ .2s cubic-bezier(.455,.03,.515,.955);transition:opacity .2s 
+cubic-bezier(.455,.03,.515,.955);opacity:.5!important}.gk60w6z#gmj3iex 
+.g-bquhmf{-webkit-transition:none!important;transition:none!important}#gmj3iex
+ .g-bquhmf:hover{opacity:1!important}#gmj3iex .g-bquhmf:active,#gmj3iex 
+.g-bquhmf:focus,#gmj3iex .g-bquhmf:hover{color:#ffffff!important}</style><div class="gvi4y51 gg9e4nk"> <a class="g99e3f6 glz1smi g-c10tml" href="javascript:void(0)" style=""> <span class="gyjod1y ">Contact Us</span> <span class="g-fskfi6"></span> </a> <div class="g-eg06vu" style=""> <div class="gjfgkst"> <div class="gipytpk">  <div class="g-ke4km5 ">Thank you!</div>   <div class="gf227nj g-ppp3zl ">Your message is very important to us.</div>   </div></div> <div class="gaw11b3"> <div class="g-rx6rn2 g-ppp3zl ">Use the form below to share your questions, ideas, comments and feedback.</div> <div class="g-z3gfk"> <form class="g-z3gfk gg5wvvw" novalidate="novalidate"> <div class="gte51ok"><w-div class="g4mvksh"><label for="gscw_email_input" class="g-ok25aq">Email</label><w-div class="g-8yxy04 gycy94f"><input maxlength="1000" title="Email" placeholder="" name="email" id="gscw_email_input" class="g-g9cga9 gppef0k" type="email"></w-div></w-div><w-div class="g4mvksh"><label for="gscw_message_input" class="g-ok25aq">Message</label><w-div class="g-8yxy04 g-jyeahd"><textarea maxlength="4000" rows="4" title="Message" placeholder="" name="message" id="gscw_message_input" class="g-g9cga9 gppef0k"></textarea></w-div></w-div> </div>  <div class="g-n1i1uw"> <a href="http://getsitecontrol.com/?utm_content=contact&amp;utm_source=www.kblearningacademy.com&amp;utm_medium=referral&amp;utm_term=bottomRightPanel&amp;utm_campaign=Widgets%20Logo" style="display: table-cell !important;text-indent: 0 !important;" tabindex="-1" class="g-bquhmf" target="_blank">Powered by GetSiteControl</a> <div class="giv1y8n"> <button type="submit" class="g7v0lj8  "> <span class="g-wdq0y1">Send</span></button> </div> </div> </form> </div> </div> </div></div></w-div><w-div id="gxwkskf" class="g-ch20ds g-rzvors" style="margin-top: -72px;"><w-div id="gv2i9v9" class="ggjdklw g-lc0i9h" style="visibility: visible; display: block;"><style media="print" type="text/css">#gv2i9v9{display:none!important}</style><style media="handheld,screen,projection,tv" type="text/css">#gv2i9v9{margin:0;padding:0;border:0;box-sizing:content-box!important;box-shadow:none;background-clip:padding-box!important;line-height:1.2;vertical-align:middle;text-align:left;font-weight:400;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif;font-style:normal;letter-spacing:normal;text-shadow:none;text-transform:none;float:none;z-index:2147483635;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);filter:none}#gv2i9v9
+ a,#gv2i9v9 b,#gv2i9v9 div,#gv2i9v9 em,#gv2i9v9 form,#gv2i9v9 
+h1,#gv2i9v9 i,#gv2i9v9 img,#gv2i9v9 label,#gv2i9v9 li,#gv2i9v9 
+ol,#gv2i9v9 p,#gv2i9v9 span,#gv2i9v9 strong,#gv2i9v9 u,#gv2i9v9 
+ul{margin:0;padding:0;border:0;border-radius:0;vertical-align:inherit;width:auto;height:auto;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:inherit;line-height:inherit;letter-spacing:normal;color:inherit;background-color:transparent;position:static;font-size:inherit;font-weight:inherit;font-style:inherit;text-transform:inherit;text-decoration:inherit;text-align:inherit;float:none;outline:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}#gv2i9v9
+ a,#gv2i9v9 a:active,#gv2i9v9 
+a:focus{-webkit-tap-highlight-color:rgba(0,0,0,0);text-decoration:none}#gv2i9v9
+ img{display:block}#gv2i9v9 
+.g-ppp3zl{vertical-align:baseline;line-height:1.35}#gv2i9v9 .g-ppp3zl 
+b,#gv2i9v9 .g-ppp3zl strong{font-weight:700}#gv2i9v9 .g-ppp3zl 
+em,#gv2i9v9 .g-ppp3zl i{font-style:italic}#gv2i9v9 .g-ppp3zl 
+u{text-decoration:underline}#gv2i9v9 .g-ppp3zl p{margin:0 0 10px 
+0}#gv2i9v9 .g-ppp3zl a{text-decoration:underline}#gv2i9v9 
+.g-ppp3zl.gt6sqj{display:inline;white-space:nowrap;margin:0;padding:0}#gv2i9v9
+ .g-ppp3zl.gt6sqj 
+*{white-space:nowrap;display:inline;margin:0;padding:0}#gv2i9v9 
+::-webkit-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gv2i9v9
+ :-moz-placeholder,#gv2i9v9 
+::-moz-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gv2i9v9
+ 
+input:-ms-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gv2i9v9
+ [placeholder]{text-overflow:ellipsis}#gv2i9v9 
+input:-moz-placeholder,#gv2i9v9 input:-ms-input-placeholder,#gv2i9v9 
+input::-moz-placeholder{text-overflow:ellipsis}#gv2i9v9 input,#gv2i9v9 
+input:focus,#gv2i9v9 select,#gv2i9v9 select:focus,#gv2i9v9 
+textarea,#gv2i9v9 
+textarea:focus{margin:0!important;padding:0;border:0;text-align:left!important;border-radius:3px!important;background:0
+ 
+0;vertical-align:middle;width:auto!important;height:auto!important;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif!important;background-clip:padding-box!important;line-height:1!important;letter-spacing:normal!important;outline:0
+ none!important;font-size:14px!important;float:none}#gv2i9v9 
+button,#gv2i9v9 input[type=submit]{margin:0;padding:0;background:0 
+0;width:auto;height:auto;text-shadow:none!important;box-shadow:none!important;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif;line-height:1;letter-spacing:normal;float:none;font-weight:700;text-decoration:none;display:inline-block;text-align:center;border-radius:2px;vertical-align:middle;cursor:pointer;background-image:none;border:0;white-space:nowrap;outline:0;font-family:inherit;text-transform:none;overflow:visible}#gv2i9v9
+ button:active,#gv2i9v9 button:disabled,#gv2i9v9 button:focus,#gv2i9v9 
+button:hover,#gv2i9v9 input[type=submit]:active,#gv2i9v9 
+input[type=submit]:disabled,#gv2i9v9 input[type=submit]:focus,#gv2i9v9 
+input[type=submit]:hover{outline:0;text-decoration:none}#gv2i9v9 
+button::-moz-focus-inner,#gv2i9v9 
+input[type=submit]::-moz-focus-inner{padding:0;border:0}#gv2i9v9 
+textarea{line-height:1.2;overflow:auto;resize:none!important}#gv2i9v9 
+input:-webkit-autofill,#gv2i9v9 
+textarea:-webkit-autofill{background-color:transparent!important;-webkit-box-shadow:0
+ 0 0 1000px #fff inset!important}#gv2i9v9 
+*{box-sizing:content-box!important;-webkit-filter:none;filter:none}#gv2i9v9.g-yyzlj3
+ 
+.gjb8apc.g-ctuaw0{background:#39579A!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.g-ctuaw0:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-ctuaw0:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-ctuaw0:hover{background:#4a6dbc!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.gyqnf0s{background:#33465E!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.gyqnf0s:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gyqnf0s:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gyqnf0s:hover{background:#455f7f!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.g8gcsko{background:#159F49!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.g8gcsko:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g8gcsko:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g8gcsko:hover{background:#1bcc5e!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.gwehtul{background:#DF4901!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.gwehtul:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gwehtul:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gwehtul:hover{background:#fe6115!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-bse5cj{background:#da347c!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.g-bse5cj:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-bse5cj:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-bse5cj:hover{background:#e25f98!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.geeuid9{background:#00659B!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.geeuid9:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.geeuid9:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.geeuid9:hover{background:#0086ce!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-ez0dgj{background:#CA1E20!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.g-ez0dgj:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-ez0dgj:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-ez0dgj:hover{background:#e2393b!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-hvl2do{background:#1DA8E2!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.g-hvl2do:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-hvl2do:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-hvl2do:hover{background:#4ab9e8!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.ged0elz,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gxiu6jt{background:#527CBD!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.ged0elz:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.ged0elz:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.ged0elz:hover,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gxiu6jt:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gxiu6jt:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gxiu6jt:hover{background:#7798cb!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.goqjgua{background:#507298!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.goqjgua:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.goqjgua:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.goqjgua:hover{background:#6a8cb1!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.gu9acjj{background:#333!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.gu9acjj:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gu9acjj:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.gu9acjj:hover{background:#4d4d4d!important}#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-kidtx2{background:#CF1D13!important;color:#fff!important}#gv2i9v9.g-yyzlj3
+ .gjb8apc.g-kidtx2:active,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-kidtx2:focus,#gv2i9v9.g-yyzlj3 
+.gjb8apc.g-kidtx2:hover{background:#eb342a!important}#gv2i9v9.g-yyzlj3 
+.g-n848go:after{height:0;content:none}#gv2i9v9 
+.g-vp9ays.gq9ai6s:before{content:"\e802"}#gv2i9v9 
+.g-vp9ays.g7ryxjx:before{content:"\e805"}#gv2i9v9 
+.g-vp9ays.g-bg2qke:before{content:"\e800"}#gv2i9v9 
+.g-vp9ays.g-ij9qws:before{content:"\e804"}#gv2i9v9 
+.g-vp9ays.g-tie54r:before{content:"\e811"}#gv2i9v9 
+.g-vp9ays.g1nx6ae:before{content:"\e812"}#gv2i9v9 
+.g-vp9ays.g-u6o8bl:before{content:"\e813"}#gv2i9v9 
+.g-vp9ays.g-jll4a5:before{content:"\e806"}#gv2i9v9 
+.g-vp9ays.gmb8tsv:before,#gv2i9v9 
+.g-vp9ays.gk1mqyp:before{content:"\e80a"}#gv2i9v9 
+.g-vp9ays.gsg0l49:before{content:"\e807"}#gv2i9v9 
+.g-vp9ays.g-bhdkwl:before{content:"\e801"}#gv2i9v9 
+.g-vp9ays.g-w347zj:before{content:"\e821"}#gv2i9v9 
+.g-vp9ays.gqj6h2u:before{content:"\e808"}#gv2i9v9{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}#gv2i9v9
+ .gvi4y51{position:relative;margin-bottom:16px}.gk60w6z#gv2i9v9 
+.gvi4y51{-webkit-transition:none!important;transition:none!important}.g-vu0smf
+ #gv2i9v9.g-t4z5jb 
+.gvi4y51{overflow:hidden;background:#37abc8!important;border-radius:0 
+2px 2px 0!important}.g-vu0smf #gv2i9v9.g-t4z5jb 
+.gvi4y51.g-1e789e{-webkit-transition:background-color .2s 
+cubic-bezier(.455,.03,.515,.955)!important;transition:background-color 
+.2s cubic-bezier(.455,.03,.515,.955)!important}.gk60w6z.g-vu0smf 
+#gv2i9v9.g-t4z5jb 
+.gvi4y51.g-1e789e{-webkit-transition:none!important!important;transition:none!important!important}.g-vu0smf
+ #gv2i9v9.g-t4z5jb 
+.gvi4y51.g-1e789e:hover{background:#4bb3ce!important;left:46px!important}.g-vu0smf
+ #gv2i9v9.g-t4z5jb .gvi4y51 
+.glz1smi{top:-42px;-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);-webkit-transform-origin:bottom
+ right;-ms-transform-origin:bottom right;transform-origin:bottom 
+right;background:0 0!important;min-width:0!important;border-radius:0 2px
+ 2px 0!important}.g-vu0smf #gv2i9v9.g-t4z5jb .gvi4y51 .glz1smi 
+.gyjod1y{padding-left:16px!important;padding-right:16px!important}.g-vu0smf
+ #gv2i9v9.g-t4z5jb .gvi4y51 .glz1smi .g-vp9ays{display:none}.g-rzvors 
+#gv2i9v9.g-t4z5jb 
+.gvi4y51.g-1e789e{-webkit-transition-duration:0s;transition-duration:0s}.g-rzvors
+ #gv2i9v9.g-t4z5jb .gvi4y51.g-1e789e:hover{right:3px!important}.g-rzvors
+ #gv2i9v9.g-t4z5jb .gvi4y51 
+.glz1smi{-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);-webkit-transform-origin:top
+ left;-ms-transform-origin:top left;transform-origin:top 
+left;min-width:0!important;border-radius:2px 2px 0 0!important}.g-rzvors
+ #gv2i9v9.g-t4z5jb .gvi4y51 .glz1smi 
+.gyjod1y{padding-left:16px!important;padding-right:16px!important;padding-bottom:4px!important}.g-rzvors
+ #gv2i9v9.g-t4z5jb .gvi4y51 .glz1smi .g-vp9ays{display:none}.g-vu0smf 
+#gv2i9v9{float:right;text-align:right!important}.g-vu0smf #gv2i9v9 
+.gvi4y51{left:0;-webkit-transition:left .5s 
+cubic-bezier(.455,.03,.515,.955);transition:left .5s 
+cubic-bezier(.455,.03,.515,.955)}.gk60w6z.g-vu0smf #gv2i9v9 
+.gvi4y51{-webkit-transition:none!important;transition:none!important}.g-vu0smf
+ #gv2i9v9 .gvi4y51.gg9e4nk{left:42px!important}.g-vu0smf #gv2i9v9 
+.gvi4y51 .g99e3f6:first-child{border-top-right-radius:2px}.g-vu0smf 
+#gv2i9v9 .gvi4y51 
+.g99e3f6:last-child{border-bottom-right-radius:2px}.g-vu0smf #gv2i9v9 
+.gvi4y51 .g99e3f6.g-vmwhj1:hover{border-radius:0 2px 2px 0}.g-vu0smf 
+#gv2i9v9 .gvi4y51 .gyjod1y{padding-right:1px!important}.g-vu0smf 
+#gv2i9v9 
+.glz1smi{left:0;text-align:right;-webkit-transition-property:left,border-radius,background-color!important;transition-property:left,border-radius,background-color!important;-webkit-transition-duration:.2s!important;transition-duration:.2s!important;-webkit-transition-timing-function:cubic-bezier(.455,.03,.515,.955)!important;transition-timing-function:cubic-bezier(.455,.03,.515,.955)!important;min-width:500px}.gk60w6z.g-vu0smf
+ #gv2i9v9 
+.glz1smi{-webkit-transition:none!important!important;transition:none!important!important}.g-rzvors
+ #gv2i9v9{text-align:right}.g-rzvors #gv2i9v9 
+.gvi4y51{right:-42px;-webkit-transition:right .5s 
+cubic-bezier(.455,.03,.515,.955);transition:right .5s 
+cubic-bezier(.455,.03,.515,.955)}.gk60w6z.g-rzvors #gv2i9v9 
+.gvi4y51{-webkit-transition:none!important;transition:none!important}.g-rzvors
+ #gv2i9v9 .gvi4y51.gg9e4nk{right:0!important}.g-rzvors #gv2i9v9 .gvi4y51
+ .g99e3f6:first-child{border-top-left-radius:2px}.g-rzvors #gv2i9v9 
+.gvi4y51 .g99e3f6:last-child{border-bottom-left-radius:2px}.g-rzvors 
+#gv2i9v9 .gvi4y51 .g99e3f6.g-vmwhj1:hover{border-radius:2px 0 0 
+2px}.g-rzvors #gv2i9v9 .gvi4y51 
+.gyjod1y{padding-left:1px!important}.g-rzvors #gv2i9v9 
+.glz1smi{text-align:left;right:42px;-webkit-transition-property:right,border-radius,background-color!important;transition-property:right,border-radius,background-color!important;-webkit-transition-duration:.2s!important;transition-duration:.2s!important;-webkit-transition-timing-function:cubic-bezier(.455,.03,.515,.955)!important;transition-timing-function:cubic-bezier(.455,.03,.515,.955)!important}.gk60w6z.g-rzvors
+ #gv2i9v9 
+.glz1smi{-webkit-transition:none!important!important;transition:none!important!important}#gv2i9v9
+ 
+.g99e3f6{color:#ffffff!important;background:#37abc8!important;text-decoration:none;display:inline-block;white-space:nowrap;font-size:0}#gv2i9v9
+ .g99e3f6:active,#gv2i9v9 
+.g99e3f6:hover{background:#4bb3ce!important;color:#ffffff!important}#gv2i9v9
+ 
+.g99e3f6:focus{text-decoration:none!important;outline:0!important}#gv2i9v9
+ .glz1smi{position:relative}#gv2i9v9 
+.gk60w6z.glz1smi{-webkit-transition:none!important;transition:none!important}#gv2i9v9
+ .gyjod1y{font-weight:700;padding:0 
+16px;font-size:14px;vertical-align:middle;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:42px;display:inline-block;max-width:500px}#gv2i9v9
+ .g-lyr4ps{display:inline-block;width:6px}#gv2i9v9 
+.g-vp9ays{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;padding:10px;vertical-align:middle}#gv2i9v9
+ 
+.g-vp9ays:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}.g-rzvors
+ #gv2i9v9 
+.g-n848go{text-align:right;position:relative;right:42px}#gv2i9v9 
+.g-n848go{font-size:0}#gv2i9v9 
+.g-n848go:after{background:#5fbcd3;height:1px;width:42px;display:inline-block;content:'
+ '}</style><div class="gvi4y51 gg9e4nk g-1e789e">   <a class="g99e3f6 gjb8apc glz1smi  g-vmwhj1  g-ctuaw0" data-tag="facebook" data-track="action" target="_blank" href="http://www.facebook.com/kblearningacademy">  <span class="g-vp9ays gq9ai6s"></span> <span class="gyjod1y ">Follow on Facebook</span>  </a>   <div class="g-n848go"></div>  <a class="g99e3f6 gjb8apc glz1smi  g-vmwhj1  g-hvl2do" data-tag="twitter" data-track="action" target="_blank" href="https://twitter.com/karanb81">  <span class="g-vp9ays g-jll4a5"></span> <span class="gyjod1y ">Follow on Twitter</span>  </a>   <div class="g-n848go"></div>  <a class="g99e3f6 gjb8apc glz1smi  g-vmwhj1  g-kidtx2" data-tag="youtube" data-track="action" target="_blank" href="http://youtube.com/nixsupport">  <span class="g-vp9ays gqj6h2u"></span> <span class="gyjod1y ">Follow on Youtube</span>  </a> </div></w-div><style media="print" type="text/css">#gxwkskf{display:none!important}</style><style media="handheld,screen,projection,tv" type="text/css">#gxwkskf{margin:0;padding:0;border:0;box-sizing:content-box!important;box-shadow:none;background-clip:padding-box!important;line-height:1.2;vertical-align:middle;text-align:left;font-weight:400;font-family:'Helvetica
+ Neue', Helvetica, Arial, 
+sans-serif;;font-style:normal;letter-spacing:normal;text-shadow:none;text-transform:none;float:none;z-index:2147483635;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);filter:none}#gxwkskf
+ a,#gxwkskf b,#gxwkskf div,#gxwkskf em,#gxwkskf form,#gxwkskf 
+h1,#gxwkskf i,#gxwkskf img,#gxwkskf label,#gxwkskf li,#gxwkskf 
+ol,#gxwkskf p,#gxwkskf span,#gxwkskf strong,#gxwkskf u,#gxwkskf 
+ul{margin:0;padding:0;border:0;border-radius:0;vertical-align:inherit;width:auto;height:auto;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:inherit;line-height:inherit;letter-spacing:normal;color:inherit;background-color:transparent;position:static;font-size:inherit;font-weight:inherit;font-style:inherit;text-transform:inherit;text-decoration:inherit;text-align:inherit;float:none;outline:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}#gxwkskf
+ a,#gxwkskf a:active,#gxwkskf 
+a:focus{-webkit-tap-highlight-color:rgba(0,0,0,0);text-decoration:none}#gxwkskf
+ img{display:block}#gxwkskf 
+.g-ppp3zl{vertical-align:baseline;line-height:1.35}#gxwkskf .g-ppp3zl 
+b,#gxwkskf .g-ppp3zl strong{font-weight:700}#gxwkskf .g-ppp3zl 
+em,#gxwkskf .g-ppp3zl i{font-style:italic}#gxwkskf .g-ppp3zl 
+u{text-decoration:underline}#gxwkskf .g-ppp3zl p{margin:0 0 10px 
+0}#gxwkskf .g-ppp3zl a{text-decoration:underline}#gxwkskf 
+.g-ppp3zl.gt6sqj{display:inline;white-space:nowrap;margin:0;padding:0}#gxwkskf
+ .g-ppp3zl.gt6sqj 
+*{white-space:nowrap;display:inline;margin:0;padding:0}#gxwkskf 
+::-webkit-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gxwkskf
+ :-moz-placeholder,#gxwkskf 
+::-moz-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gxwkskf
+ 
+input:-ms-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#gxwkskf
+ [placeholder]{text-overflow:ellipsis}#gxwkskf 
+input:-moz-placeholder,#gxwkskf input:-ms-input-placeholder,#gxwkskf 
+input::-moz-placeholder{text-overflow:ellipsis}#gxwkskf input,#gxwkskf 
+input:focus,#gxwkskf select,#gxwkskf select:focus,#gxwkskf 
+textarea,#gxwkskf 
+textarea:focus{margin:0!important;padding:0;border:0;text-align:left!important;border-radius:3px!important;background:0
+ 
+0;vertical-align:middle;width:auto!important;height:auto!important;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:'Helvetica
+ Neue', Helvetica, Arial, 
+sans-serif;!important;background-clip:padding-box!important;line-height:1!important;letter-spacing:normal!important;outline:0
+ none!important;font-size:14px!important;float:none}#gxwkskf 
+button,#gxwkskf input[type=submit]{margin:0;padding:0;background:0 
+0;width:auto;height:auto;text-shadow:none!important;box-shadow:none!important;font-family:'Helvetica
+ Neue', Helvetica, Arial, 
+sans-serif;;line-height:1;letter-spacing:normal;float:none;font-weight:700;text-decoration:none;display:inline-block;text-align:center;border-radius:2px;vertical-align:middle;cursor:pointer;background-image:none;border:0;white-space:nowrap;outline:0;font-family:inherit;text-transform:none;overflow:visible}#gxwkskf
+ button:active,#gxwkskf button:disabled,#gxwkskf button:focus,#gxwkskf 
+button:hover,#gxwkskf input[type=submit]:active,#gxwkskf 
+input[type=submit]:disabled,#gxwkskf input[type=submit]:focus,#gxwkskf 
+input[type=submit]:hover{outline:0;text-decoration:none}#gxwkskf 
+button::-moz-focus-inner,#gxwkskf 
+input[type=submit]::-moz-focus-inner{padding:0;border:0}#gxwkskf 
+textarea{line-height:1.2;overflow:auto;resize:none!important}#gxwkskf 
+input:-webkit-autofill,#gxwkskf 
+textarea:-webkit-autofill{background-color:transparent!important;-webkit-box-shadow:0
+ 0 0 1000px #fff inset!important}#gxwkskf 
+*{box-sizing:content-box!important;-webkit-filter:none;filter:none}#gxwkskf.g-ch20ds{top:30%;position:fixed;z-index:2147483635}#gxwkskf.g-ch20ds
+ :last-child 
+.gvi4y51{margin-bottom:0!important}#gxwkskf.g-ch20ds.g-vu0smf{width:1px;left:-1px;*zoom:1}#gxwkskf.g-ch20ds.g-vu0smf:after,#gxwkskf.g-ch20ds.g-vu0smf:before{display:table;content:"";line-height:0}#gxwkskf.g-ch20ds.g-vu0smf:after{clear:both}#gxwkskf.g-ch20ds.g-rzvors{right:0;width:0}</style></w-div><w-div id="g-l42w15" class="ggjdklw g-lc0i9h gp4wmwr gta5hgg gg9e4nk"><style media="print" type="text/css">#g-l42w15{display:none!important}</style><style media="handheld,screen,projection,tv" type="text/css">#g-l42w15{margin:0;padding:0;border:0;box-sizing:content-box!important;box-shadow:none;background-clip:padding-box!important;line-height:1.2;vertical-align:middle;text-align:left;font-weight:400;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif;font-style:normal;letter-spacing:normal;text-shadow:none;text-transform:none;float:none;z-index:2147483635;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);filter:none}#g-l42w15
+ a,#g-l42w15 b,#g-l42w15 div,#g-l42w15 em,#g-l42w15 form,#g-l42w15 
+h1,#g-l42w15 i,#g-l42w15 img,#g-l42w15 label,#g-l42w15 li,#g-l42w15 
+ol,#g-l42w15 p,#g-l42w15 span,#g-l42w15 strong,#g-l42w15 u,#g-l42w15 
+ul{margin:0;padding:0;border:0;border-radius:0;vertical-align:inherit;width:auto;height:auto;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:inherit;line-height:inherit;letter-spacing:normal;color:inherit;background-color:transparent;position:static;font-size:inherit;font-weight:inherit;font-style:inherit;text-transform:inherit;text-decoration:inherit;text-align:inherit;float:none;outline:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}#g-l42w15
+ a,#g-l42w15 a:active,#g-l42w15 
+a:focus{-webkit-tap-highlight-color:rgba(0,0,0,0);text-decoration:none}#g-l42w15
+ img{display:block}#g-l42w15 
+.g-ppp3zl{vertical-align:baseline;line-height:1.35}#g-l42w15 .g-ppp3zl 
+b,#g-l42w15 .g-ppp3zl strong{font-weight:700}#g-l42w15 .g-ppp3zl 
+em,#g-l42w15 .g-ppp3zl i{font-style:italic}#g-l42w15 .g-ppp3zl 
+u{text-decoration:underline}#g-l42w15 .g-ppp3zl p{margin:0 0 10px 
+0}#g-l42w15 .g-ppp3zl a{text-decoration:underline}#g-l42w15 
+.g-ppp3zl.gt6sqj{display:inline;white-space:nowrap;margin:0;padding:0}#g-l42w15
+ .g-ppp3zl.gt6sqj 
+*{white-space:nowrap;display:inline;margin:0;padding:0}#g-l42w15 
+::-webkit-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#g-l42w15
+ :-moz-placeholder,#g-l42w15 
+::-moz-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#g-l42w15
+ 
+input:-ms-input-placeholder{color:#cacaca!important;text-overflow:ellipsis!important;opacity:1;overflow:hidden;white-space:nowrap;vertical-align:middle;font-size:14px;text-align:left;font-weight:400;position:static}#g-l42w15
+ [placeholder]{text-overflow:ellipsis}#g-l42w15 
+input:-moz-placeholder,#g-l42w15 input:-ms-input-placeholder,#g-l42w15 
+input::-moz-placeholder{text-overflow:ellipsis}#g-l42w15 input,#g-l42w15
+ input:focus,#g-l42w15 select,#g-l42w15 select:focus,#g-l42w15 
+textarea,#g-l42w15 
+textarea:focus{margin:0!important;padding:0;border:0;text-align:left!important;border-radius:3px!important;background:0
+ 
+0;vertical-align:middle;width:auto!important;height:auto!important;min-width:0;min-height:0;max-width:none;max-height:none;text-shadow:none!important;box-shadow:none!important;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif!important;background-clip:padding-box!important;line-height:1!important;letter-spacing:normal!important;outline:0
+ none!important;font-size:14px!important;float:none}#g-l42w15 
+button,#g-l42w15 input[type=submit]{margin:0;padding:0;background:0 
+0;width:auto;height:auto;text-shadow:none!important;box-shadow:none!important;font-family:"Helvetica
+ Neue", Helvetica, Arial, 
+sans-serif;line-height:1;letter-spacing:normal;float:none;font-weight:700;text-decoration:none;display:inline-block;text-align:center;border-radius:2px;vertical-align:middle;cursor:pointer;background-image:none;border:0;white-space:nowrap;outline:0;font-family:inherit;text-transform:none;overflow:visible}#g-l42w15
+ button:active,#g-l42w15 button:disabled,#g-l42w15 
+button:focus,#g-l42w15 button:hover,#g-l42w15 
+input[type=submit]:active,#g-l42w15 
+input[type=submit]:disabled,#g-l42w15 input[type=submit]:focus,#g-l42w15
+ input[type=submit]:hover{outline:0;text-decoration:none}#g-l42w15 
+button::-moz-focus-inner,#g-l42w15 
+input[type=submit]::-moz-focus-inner{padding:0;border:0}#g-l42w15 
+textarea{line-height:1.2;overflow:auto;resize:none!important}#g-l42w15 
+input:-webkit-autofill,#g-l42w15 
+textarea:-webkit-autofill{background-color:transparent!important;-webkit-box-shadow:0
+ 0 0 1000px #fff inset!important}#g-l42w15 
+*{box-sizing:content-box!important;-webkit-filter:none;filter:none}#g-l42w15
+ .g-g9cga9,#g-l42w15 .g-g9cga9:focus{border:solid 1px 
+#37abc8!important;background-color:#ffffff!important;font-size:14px!important;padding-left:8px!important;padding-right:8px!important;color:#333333!important;box-sizing:border-box!important;height:32px!important;width:100%!important;padding-top:8px\9;padding-bottom:8px\9}#g-l42w15
+ .g-g9cga9::-moz-placeholder,#g-l42w15 
+.g-g9cga9:focus::-moz-placeholder{font-size:14px;line-height:32px;height:32px}#g-l42w15
+ .g-g9cga9::-webkit-input-placeholder,#g-l42w15 
+.g-g9cga9:focus::-webkit-input-placeholder{font-size:14px;line-height:17px}#g-l42w15
+ .g-ok25aq{display:none}#g-l42w15 
+.g7v0lj8{color:#ffffff!important;background:#73c4d9!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important;margin-top:1px;font-size:0;vertical-align:middle;line-height:1}#g-l42w15
+ .g7v0lj8:active,#g-l42w15 
+.g7v0lj8:hover{background:#6bc1d7!important;color:#ffffff!important}#g-l42w15
+ 
+.grgzhxc{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;line-height:30px;padding:0
+ 6px;display:none}#g-l42w15 
+.grgzhxc:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#g-l42w15
+ .grgzhxc:before{content:"\e80a"}#g-l42w15 .g-1cafvo 
+.grgzhxc{display:inline-block}#g-l42w15 .g-wdq0y1{padding:0 
+20px;font-size:14px;font-weight:700;vertical-align:middle;max-width:250px;line-height:30px;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block}#g-l42w15
+ .g-1cafvo .g-wdq0y1{display:none}#g-l42w15 
+.g-dih6av{width:100%;display:table;margin:0 auto}#g-l42w15 
+.gte51ok{display:table;width:100%}#g-l42w15 
+.g4mvksh{width:100%;display:table-cell;padding-right:5px}#g-l42w15 
+.g-us2zsz .g4mvksh{width:50%}#g-l42w15 .g-us2zsz 
+.g-wdq0y1{line-height:32px}#g-l42w15 
+.g7v0lj8{display:table-cell}#g-l42w15.g-6mstgt .g-us2zsz 
+.gte51ok{table-layout:fixed}#g-l42w15.g-6mstgt .g-us2zsz 
+.g4mvksh{width:100%;display:block;margin-bottom:5px}#g-l42w15.g-6mstgt 
+.g-us2zsz .g4mvksh:last-child{margin-bottom:0}#g-l42w15.g-6mstgt 
+.g-us2zsz .g4mvksh{padding-right:0}#g-l42w15.g-6mstgt .g-us2zsz 
+.g7v0lj8{margin-top:5px;display:block;width:100%}#g-l42w15.g-6mstgt 
+.g-us2zsz .g-wdq0y1{max-width:none;display:block}#g-l42w15.g-fu3a0u 
+.gte51ok{table-layout:fixed}#g-l42w15.g-fu3a0u 
+.g-wdq0y1{display:block}#g-l42w15 
+.gjfgkst{display:none;text-align:left;z-index:2147483636;background-clip:padding-box}#g-l42w15
+ 
+.g-k96vtt{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-animation:gscw-flipTy
+ .6s;animation:gscw-flipTy 
+.6s;-webkit-backface-visibility:visible!important;backface-visibility:visible!important;text-align:center;font-size:120px;display:block}#g-l42w15
+ 
+.g-k96vtt:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#g-l42w15
+ .g-k96vtt:before{content:"\e80b"}.g-ebo384#g-l42w15 
+.gaw11b3{display:none}.g-ebo384#g-l42w15 
+.gjfgkst{height:160px;-webkit-animation:gscw-fadeIn 
+.6s;animation:gscw-fadeIn 
+.6s;display:table;width:100%;table-layout:fixed}.gk60w6z.g-ebo384#g-l42w15
+ 
+.gjfgkst{-webkit-animation:none!important;animation:none!important}.g-ebo384#g-l42w15
+ 
+.gjfgkst>.gipytpk{display:table-cell;vertical-align:middle}.g4tdq3b#g-l42w15
+ .gjfgkst{opacity:1}#g-l42w15 
+.gjfgkst{display:block;position:absolute;top:0;left:0;bottom:0;right:0;text-align:center;z-index:2147483636;visibility:hidden;overflow:hidden;line-height:42px;color:#ffffff;background:#37abc8;-webkit-transform-origin:bottom;-ms-transform-origin:bottom;transform-origin:bottom;-webkit-transform:rotateX(-90deg);transform:rotateX(-90deg);-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:visibility
+ .5s,-webkit-transform .5s;transition:visibility .5s,-webkit-transform 
+.5s;transition:transform .5s,visibility .5s;transition:transform 
+.5s,visibility .5s,-webkit-transform .5s}#g-l42w15.gta5hgg 
+.gjfgkst{-webkit-transform-origin:top;-ms-transform-origin:top;transform-origin:top}#g-l42w15
+ 
+.g-dan20l{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;vertical-align:middle;font-size:22px;line-height:42px}#g-l42w15
+ 
+.g-dan20l:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#g-l42w15
+ .g-dan20l:before{content:"\e820"}#g-l42w15 
+.gye3la8{margin-left:10px;font-size:14px;line-height:42px;display:inline-block;-webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:80%}#g-l42w15
+ 
+.g4luq01{text-decoration:none;display:inline-block;text-align:center;border-radius:2px;vertical-align:middle;cursor:pointer;background-image:none;border:0;outline:0;font-family:inherit;text-transform:none;overflow:visible;color:#ffffff!important;background:#73c4d9!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important;margin-left:16px;padding:0 
+20px;line-height:32px;font-size:14px;font-weight:700;max-width:317px;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#g-l42w15
+ .g4luq01:active,#g-l42w15 .g4luq01:disabled,#g-l42w15 
+.g4luq01:focus,#g-l42w15 
+.g4luq01:hover{outline:0;text-decoration:none}#g-l42w15 
+.g4luq01::-moz-focus-inner{padding:0;border:0}#g-l42w15 
+.g4luq01:active,#g-l42w15 
+.g4luq01:hover{background:#6bc1d7!important;color:#ffffff!important}#g-l42w15.g-ebo384
+ 
+.gjfgkst{visibility:visible;-webkit-transform:rotateX(0);transform:rotateX(0)}#g-l42w15.g4tdq3b
+ 
+.gjfgkst{visibility:hidden;-webkit-transform:rotateX(-90deg);transform:rotateX(-90deg)}#g-l42w15
+ .g-dih6av{width:auto;min-width:540px}#g-l42w15 .g-us2zsz 
+.g-wdq0y1{line-height:30px}#g-l42w15 .g-dih6av 
+.g7v0lj8{color:#ffffff!important;background:#73c4d9!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important}#g-l42w15 .g-dih6av .g7v0lj8:active,#g-l42w15 
+.g-dih6av 
+.g7v0lj8:hover{background:#6bc1d7!important;color:#ffffff!important}#g-l42w15
+ .g-dih6av .g-8yxy04{min-width:250px!important}#g-l42w15 .g-dih6av 
+.g-xriesf{padding-right:16px;font-size:14px;display:table-cell;line-height:32px;width:1px}#g-l42w15{color:#ffffff!important;background:#37abc8!important;display:block;white-space:nowrap!important;overflow:hidden;padding:5px
+ 
+42px!important;text-align:center!important;left:0;right:0;position:fixed;font-size:0}#g-l42w15
+ a,#g-l42w15 a:active,#g-l42w15 a:focus,#g-l42w15 a:hover,#g-l42w15 
+button,#g-l42w15 button:active,#g-l42w15 button:focus,#g-l42w15 
+button:hover,#g-l42w15 div,#g-l42w15 input,#g-l42w15 
+input:active,#g-l42w15 input:focus,#g-l42w15 label,#g-l42w15 
+span,#g-l42w15 textarea,#g-l42w15 textarea:active,#g-l42w15 
+textarea:focus{color:inherit}#g-l42w15.gta5hgg{-webkit-transition:top 
+.5s cubic-bezier(.455,.03,.515,.955);transition:top .5s 
+cubic-bezier(.455,.03,.515,.955);top:-42px}.gk60w6z#g-l42w15.gta5hgg{-webkit-transition:none!important;transition:none!important}#g-l42w15.gta5hgg.gg9e4nk{top:0}#g-l42w15.g3evrwy{-webkit-transition:bottom
+ .5s cubic-bezier(.455,.03,.515,.955);transition:bottom .5s 
+cubic-bezier(.455,.03,.515,.955);bottom:-42px}.gk60w6z#g-l42w15.g3evrwy{-webkit-transition:none!important;transition:none!important}#g-l42w15.g3evrwy.gg9e4nk{bottom:0}#g-l42w15.gcgjmwp{position:absolute}#g-l42w15.g-goh76v{position:fixed!important}#g-l42w15
+ 
+.g2aen05{font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;color:#ffffff!important;text-indent:0!important;top:0!important;left:0!important;padding:10px;background:0
+ 
+0!important;z-index:-1;position:absolute;display:block!important;text-decoration:none!important;-webkit-transition:opacity
+ .2s cubic-bezier(.455,.03,.515,.955);transition:opacity .2s 
+cubic-bezier(.455,.03,.515,.955);opacity:.5!important}#g-l42w15 
+.g2aen05:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#g-l42w15
+ .g2aen05:before{content:"\e809"}.gk60w6z#g-l42w15 
+.g2aen05{-webkit-transition:none!important;transition:none!important}#g-l42w15
+ .g2aen05:hover{opacity:1!important}#g-l42w15 .g2aen05:active,#g-l42w15 
+.g2aen05:focus,#g-l42w15 
+.g2aen05:hover{outline:0;text-decoration:none}#g-l42w15 
+.g-d1b0ao{color:#ffffff!important;font-family:gsc!important;font-style:normal!important;font-weight:400!important;line-height:1;vertical-align:middle;display:inline-block;background-color:transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:22px;height:22px;width:22px;-webkit-transition:opacity
+ .2s,-webkit-transform .2s!important;transition:opacity 
+.2s,-webkit-transform .2s!important;transition:transform .2s,opacity 
+.2s!important;transition:transform .2s,opacity .2s,-webkit-transform 
+.2s!important;-webkit-transform-origin:center 
+center;-ms-transform-origin:center center;transform-origin:center 
+center;opacity:.5;cursor:pointer;position:absolute;z-index:2147483637;padding:10px;right:0;top:0}#g-l42w15
+ 
+.g-d1b0ao:before{color:inherit!important;font-family:gsc!important;font-style:inherit!important;font-weight:inherit!important;vertical-align:baseline!important;background-color:inherit!important}#g-l42w15
+ .g-d1b0ao:before{content:"\e81c"}#g-l42w15 
+.g-d1b0ao:hover{opacity:1;-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}#g-l42w15
+ 
+.g-og738h{font-size:14px;line-height:32px;display:inline-block;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%;max-width:calc(100%
+ - 357px);margin-right:16px}#g-l42w15 
+.gjb8apc{text-decoration:none;display:inline-block;text-align:center;border-radius:2px;vertical-align:middle;cursor:pointer;background-image:none;border:0;outline:0;font-family:inherit;text-transform:none;overflow:visible;color:#ffffff!important;background:#73c4d9!important;-webkit-transition:background-color
+ .2s ease-out!important;transition:background-color .2s 
+ease-out!important;line-height:32px;font-size:14px;font-weight:700;max-width:317px;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#g-l42w15
+ .gjb8apc:active,#g-l42w15 .gjb8apc:disabled,#g-l42w15 
+.gjb8apc:focus,#g-l42w15 
+.gjb8apc:hover{outline:0;text-decoration:none}#g-l42w15 
+.gjb8apc::-moz-focus-inner{padding:0;border:0}#g-l42w15 
+.gjb8apc:active,#g-l42w15 
+.gjb8apc:hover{background:#6bc1d7!important;color:#ffffff!important}</style><div class="gjfgkst">  <span class="gye3la8 "> <nobr class="g-ppp3zl gt6sqj">  Thanks for your time. Don't miss to check out weekly newsletter for new deals and updates.  </nobr> </span></div><form class="g-dih6av ge1270t" novalidate="novalidate">  <label for="subscribe108511email" class="g-xriesf "> Get Weekly Newsletter, Discount Coupons and Latest IT Updates </label>  <div class="gte51ok"><w-div class="g4mvksh"><label for="gscw_email_input" class="g-ok25aq">Email</label><w-div class="g-8yxy04 gycy94f"><input maxlength="1000" title="Email" placeholder="Email address" name="email" id="gscw_email_input" class="g-g9cga9 gppef0k" type="email"></w-div></w-div> <button type="submit" class="g7v0lj8 "> <span class="g-wdq0y1">Subscribe</span> <span class="grgzhxc" title="Subscribe"></span></button></div></form><span class="g-d1b0ao"></span><a href="http://getsitecontrol.com/?utm_content=subscribe&amp;utm_source=www.kblearningacademy.com&amp;utm_medium=referral&amp;utm_term=topBar&amp;utm_campaign=Widgets%20Logo" style="display: block !important;text-indent: 0 !important;" tabindex="-1" class="g2aen05" target="_blank" title="Powered by GetSiteControl"></a></w-div></body></html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+
+
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
+<title>
+Create a Continuous Integration Pipeline with GitLab, Jenkins and Eclipse Che
+</title>
+<link href="ci-cd-jenkins_files/normalize-6197e73d.css" rel="stylesheet"><link href="ci-cd-jenkins_files/all-7c120d8c.css" rel="stylesheet">
+<link href="ci-cd-jenkins_files/font-awesome.css" rel="stylesheet">
+<script async="" src="ci-cd-jenkins_files/analytics.js"></script><script src="ci-cd-jenkins_files/all-33bf5217.js"></script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-1874455-2','auto');ga('send','pageview',{'page':location.pathname+location.search+location.hash});</script>
+
+
+<link href="ci-cd-jenkins_files/css.css" media="screen" rel="stylesheet">
+<link href="ci-cd-jenkins_files/bitnami_002.css" media="screen" rel="stylesheet">
+<link href="ci-cd-jenkins_files/bitnami.css" media="screen" rel="stylesheet">
+<link href="https://docs.bitnami.com/images/img/favicon-71f01445.png" rel="shortcut icon">
+</head>
+<body class="bch bch_how-to bch_how-to_create-ci-pipeline bch_how-to_create-ci-pipeline_index bch index">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+  <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsable">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a href="https://docs.bitnami.com/" class="navbar-brand">
+  <script pagespeed_no_defer="">//<![CDATA[
+(function(){var g=this,h=function(b,d){var a=b.split("."),c=g;a[0]in c||!c.execScript||c.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)a.length||void 0===d?c[e]?c=c[e]:c=c[e]={}:c[e]=d};var l=function(b){var d=b.length;if(0<d){for(var a=Array(d),c=0;c<d;c++)a[c]=b[c];return a}return[]};var m=function(b){var d=window;if(d.addEventListener)d.addEventListener("load",b,!1);else if(d.attachEvent)d.attachEvent("onload",b);else{var a=d.onload;d.onload=function(){b.call(this);a&&a.call(this)}}};var n,p=function(b,d,a,c,e){this.f=b;this.h=d;this.i=a;this.c=e;this.e={height:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight,width:window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth};this.g=c;this.b={};this.a=[];this.d={}},q=function(b,d){var a,c,e=d.getAttribute("pagespeed_url_hash");if(a=e&&!(e in b.d))if(0>=d.offsetWidth&&0>=d.offsetHeight)a=!1;else{c=d.getBoundingClientRect();var f=document.body;a=c.top+("pageYOffset"in window?window.pageYOffset:(document.documentElement||f.parentNode||f).scrollTop);c=c.left+("pageXOffset"in window?window.pageXOffset:(document.documentElement||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.hasOwnProperty(f)?a=!1:(b.b[f]=!0,a=a<=b.e.height&&c<=b.e.width)}a&&(b.a.push(e),b.d[e]=!0)};p.prototype.checkImageForCriticality=function(b){b.getBoundingClientRect&&q(this,b)};h("pagespeed.CriticalImages.checkImageForCriticality",function(b){n.checkImageForCriticality(b)});h("pagespeed.CriticalImages.checkCriticalImages",function(){r(n)});var r=function(b){b.b={};for(var d=["IMG","INPUT"],a=[],c=0;c<d.length;++c)a=a.concat(l(document.getElementsByTagName(d[c])));if(0!=a.length&&a[0].getBoundingClientRect){for(c=0;d=a[c];++c)q(b,d);a="oh="+b.i;b.c&&(a+="&n="+b.c);if(d=0!=b.a.length)for(a+="&ci="+encodeURIComponent(b.a[0]),c=1;c<b.a.length;++c){var e=","+encodeURIComponent(b.a[c]);131072>=a.length+e.length&&(a+=e)}b.g&&(e="&rd="+encodeURIComponent(JSON.stringify(s())),131072>=a.length+e.length&&(a+=e),d=!0);t=a;if(d){c=b.f;b=b.h;var f;if(window.XMLHttpRequest)f=new XMLHttpRequest;else if(window.ActiveXObject)try{f=new ActiveXObject("Msxml2.XMLHTTP")}catch(k){try{f=new ActiveXObject("Microsoft.XMLHTTP")}catch(u){}}f&&(f.open("POST",c+(-1==c.indexOf("?")?"?":"&")+"url="+encodeURIComponent(b)),f.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),f.send(a))}}},s=function(){var b={},d=document.getElementsByTagName("IMG");if(0==d.length)return{};var a=d[0];if(!("naturalWidth"in a&&"naturalHeight"in a))return{};for(var c=0;a=d[c];++c){var e=a.getAttribute("pagespeed_url_hash");e&&(!(e in b)&&0<a.width&&0<a.height&&0<a.naturalWidth&&0<a.naturalHeight||e in b&&a.width>=b[e].k&&a.height>=b[e].j)&&(b[e]={rw:a.width,rh:a.height,ow:a.naturalWidth,oh:a.naturalHeight})}return b},t="";h("pagespeed.CriticalImages.getBeaconData",function(){return t});h("pagespeed.CriticalImages.Run",function(b,d,a,c,e,f){var k=new p(b,d,a,e,f);n=k;c&&m(function(){window.setTimeout(function(){r(k)},0)})});})();pagespeed.CriticalImages.Run('/mod_pagespeed_beacon','https://docs.bitnami.com/bch/how-to/create-ci-pipeline/','Ez0F1MDYS1',true,false,'etVbzCKHHYc');
+//]]></script><img data-at2x="/images/logo@2x-5f9874ba.png" src="ci-cd-jenkins_files/logo-a5d9bcd1.png" pagespeed_url_hash="4253959617" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> <span>Docs</span>
+</a>
+  
+</div>
+
+<form action="/bch/search" accept-charset="UTF-8" method="get" class="navbar-form navbar-right"><div class="form-group form-search">
+<input name="q" autocomplete="on" placeholder="Search" class="form-control" type="search">
+</div>
+</form>
+</div>
+</nav><div id="wrapper">
+<section class="documentable">
+<aside class="documentable__sidebar" style="top: 87px; height: 559px;">
+<h3 class="title">Content</h3>
+<div class="tocify"><ul id="tocify-header1" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="introduction"><a>Introduction</a></li></ul><ul id="tocify-header2" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="assumptions-and-pre-requisites"><a>Assumptions and Pre-requisites</a></li></ul><ul id="tocify-header3" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-1-create-a-gitlab-project" style="cursor: pointer;"><a>Step 1: Create a GitLab project</a></li></ul><ul id="tocify-header4" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-2-configure-ssh-access-to-the-gitlab-project" style="cursor: pointer;"><a>Step 2: Configure SSH access to the GitLab project</a></li></ul><ul id="tocify-header5" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-3-create-an-eclipse-che-workspace-and-project" style="cursor: pointer;"><a>Step 3: Create an Eclipse Che workspace and project</a></li></ul><ul id="tocify-header6" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-4-connect-your-project-with-the-gitlab-repository" style="cursor: pointer;"><a>Step 4: Connect your project with the GitLab repository</a></li></ul><ul id="tocify-header7" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-5-configure-jenkins"><a>Step 5: Configure Jenkins</a></li></ul><ul id="tocify-header8" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-6-create-a-jenkins-project"><a>Step 6: Create a Jenkins project</a></li></ul><ul id="tocify-header9" class="tocify-header nav nav-list"><li class="tocify-item active" data-unique="step-7-create-a-gitlab-branch-for-jenkins"><a>Step 7: Create a GitLab branch for Jenkins</a></li></ul><ul id="tocify-header10" class="tocify-header nav nav-list"><li class="tocify-item" data-unique="step-8-connect-gitlab-and-jenkins"><a>Step 8: Connect GitLab and Jenkins</a></li></ul></div>
+</aside>
+
+<main class="documentable__content documentable__content--post">
+<div class="breadcrumb">
+<a href="https://docs.bitnami.com/">Bitnami Documentation Pages</a> &gt; <a href="https://docs.bitnami.com/bch/">Bitnami Cloud Hosting</a> &gt; <a href="https://docs.bitnami.com/bch/how-to/">How-To Guides</a> &gt; <a href="https://docs.bitnami.com/bch/how-to/create-ci-pipeline/"></a>
+</div>
+<h2 class="title platform-bch">
+Create a Continuous Integration Pipeline with GitLab, Jenkins and Eclipse Che
+</h2>
+<article>
+<section id="create-ci-pipeline"></section>
+
+
+<div name="introduction" data-unique="introduction"></div><h3 id="introduction">Introduction</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration (CI)</a>
+ is a widely accepted approach for ensuring software quality through 
+regular, automated builds. But although the concept of CI is well 
+understood, setting up the necessary infrastructure to implement it is 
+generally considered a complex and time-consuming process.</p>
+
+<p>It doesn't have to be that way. With <a href="https://bitnami.com/stacks/">Bitnami's ready-to-use application stacks</a>,
+ you can quickly deploy a reliable, automated CI pipeline for your 
+project in less than an hour using popular open-source tools like GitLab
+ and Jenkins. This guide will walk you through the process.</p>
+
+<div name="assumptions-and-pre-requisites" data-unique="assumptions-and-pre-requisites"></div><h3 id="assumptions-and-pre-requisites">Assumptions and Pre-requisites</h3>
+
+<p>This guide makes the following assumptions:</p>
+
+<ul>
+  <li><strong>You have launched or are otherwise running the <a href="https://bitnami.com/stack/gitlab">Bitnami GitLab Community Edition Stack</a>, the <a href="https://bitnami.com/stack/jenkins">Bitnami Jenkins Stack</a> and the <a href="https://bitnami.com/stack/eclipse-che">Bitnami Eclipse Che Stack</a>.</strong></li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>NOTE: As an alternative to the Bitnami Eclipse Che Stack, you can also use the Git command-line client.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>You have the IP addresses and administrative login credentials for all these applications.</p>
+  </li>
+  <li>
+    <p>You have prepared two SSH key pairs, one for communication 
+between your local Git environment and GitLab, and the other for 
+communication between GitLab and Jenkins. These key pairs should be in 
+OpenSSH format.</p>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>TIP: To generate a new SSH key pair, you can use PuTTYgen (Windows) or the <em>ssh-keygen</em> command (Linux and Mac OS X). Read <a href="http://winscp.net/eng/docs/ui_puttygen">instructions on how to use PuTTYgen</a> and <a href="http://www.macworld.co.uk/how-to/mac-software/how-generate-ssh-keys-3521606/">instructions on how to use <em>ssh-keygen</em></a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div name="step-1-create-a-gitlab-project" data-unique="step-1-create-a-gitlab-project"></div><h3 id="step-1-create-a-gitlab-project">Step 1: Create a GitLab project</h3>
+
+<p>The first step is to create a Git repository for your project source 
+code using GitLab. This is where you and your team will push code 
+changes, and the source repository for Jenkins' automated builds. Follow
+ these steps:</p>
+
+<ul>
+  <li>
+    <p>Create a new user account on GitLab and log in.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-1-487071c6.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-1-487071c6.png" pagespeed_url_hash="1138957997" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>From the "Your Projects" tab, click the "New Project" button.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-2-89201b94.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-2-89201b94.png" pagespeed_url_hash="2043862125" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>On the "New Project" page, enter a name for the project and set 
+the visibility level. The project in this example is set to "Public", 
+but you can also choose to make your project "Private" or "Internal". 
+Click "Create Project" once done.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-3-c12f889a.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-3-c12f889a.png" pagespeed_url_hash="18098183" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>TIP: <a href="https://gitlab.com/help/public_access/public_access">Read more about project visibility levels in the GiLab documentation</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>GitLab will initialize an empty Git repository for the project, as 
+shown below. Note the SSH URL to the repository, as you will need it in 
+the next step.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-4-99df8df2.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-4-99df8df2.png" pagespeed_url_hash="2866272878" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<div name="step-2-configure-ssh-access-to-the-gitlab-project" data-unique="step-2-configure-ssh-access-to-the-gitlab-project"></div><h3 id="step-2-configure-ssh-access-to-the-gitlab-project">Step 2: Configure SSH access to the GitLab project</h3>
+
+<p>Both Jenkins and Eclipse Che (or your Git command-line client) will 
+need access to the project repository, so this is a good time to 
+configure that access. Follow these steps:</p>
+
+<ul>
+  <li>
+    <p>From the GitLab main menu (accessed via the hamburger icon in the top left corner), select the "Profile Settings" option.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-5-e26630c3.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-5-e26630c3.png" pagespeed_url_hash="2342274041" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Select the "SSH Keys" tab and enter the public key content (as a 
+single line) for use between GitLab and Eclipse Che (or your Git 
+command-line client). Add a descriptive title and click the "Add key" 
+button to add it to your profile.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-6-0c0b5589.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-6-0c0b5589.png" pagespeed_url_hash="1732558192" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>TIP: Public key files typically have a <em>.pub</em> suffix.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Repeat the steps above for the second key, to be used between GitLab 
+and Jenkins. Once complete, you should see both public keys attached to 
+your GitLab profile.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-7-42d0947d.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-7-42d0947d.png" pagespeed_url_hash="2320091003" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<div name="step-3-create-an-eclipse-che-workspace-and-project" data-unique="step-3-create-an-eclipse-che-workspace-and-project"></div><h3 id="step-3-create-an-eclipse-che-workspace-and-project">Step 3: Create an Eclipse Che workspace and project</h3>
+
+<p>Next, create a workspace in Eclipse Che and add your project to it. Follow these steps:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>NOTE: If you're using the Git command-line interface (CLI) with an existing project, skip this step.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Log in to Eclipse Che and create a new workspace. Select the 
+"Stack library" tab and select one of the Bitnami containers. In this 
+guide, we will use the Bitnami Laravel container.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-8-f41c8058.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-8-f41c8058.png" pagespeed_url_hash="4100404031" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Configure the workspace name and available memory. Click "Create" to create the new workspace.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-9-566a4a43.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-9-566a4a43.png" pagespeed_url_hash="3359033691" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+</ul>
+
+<p>Eclipse Che will create the workspace and start the workspace runtime and agent.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-10-21abe620.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-10-21abe620.png" pagespeed_url_hash="2130939668" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<p>Once the process is complete, you will be presented with your new workspace.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-11-2ec5c852.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-11-2ec5c852.png" pagespeed_url_hash="1178891211" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<ul>
+  <li>Create a new Laravel project in the workspace. Check that the 
+"CMD" command-line field has the command "1. Create project" (or select 
+it from the drop-down list). Click the blue arrow to run the command.</li>
+</ul>
+
+<p>Your new project will be created, the development server will start 
+up and the project files should appear in the Project Explorer window.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-12-05376fc5.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-12-05376fc5.png" pagespeed_url_hash="814474454" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<div name="step-4-connect-your-project-with-the-gitlab-repository" data-unique="step-4-connect-your-project-with-the-gitlab-repository"></div><h3 id="step-4-connect-your-project-with-the-gitlab-repository">Step 4: Connect your project with the GitLab repository</h3>
+
+<p>Next, connect your project with the remote repository on GitLab and 
+commit your initial code tree to it. You can do this from Eclipse Che or
+ via the Git command-line interface.</p>
+
+<p>If you're using Eclipse Che, follow these steps:</p>
+
+<ul>
+  <li>
+    <p>In the Eclipse Che workspace, select the "Profile -&gt; Preferences" menu item.</p>
+  </li>
+  <li>
+    <p>In the "Preferences" dialog box, select the "Git -&gt; Committer" option and enter your name and email address for Git commits.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-13-c788523a.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-13-c788523a.png" pagespeed_url_hash="2692316873" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>In the same "Preferences" dialog box, select the "SSH -&gt; VCS" 
+option and click the "Upload Key" button. In the resulting dialog, enter
+ the IP address or host name of your GitLab server and upload the 
+private key for use between Eclipse Che and GitLab.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-14-f2480b1b.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-14-f2480b1b.png" pagespeed_url_hash="3867400088" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Confirm that the key has been added and click "Close" to close the "Preferences" dialog.</p>
+  </li>
+  <li>
+    <p>In the Eclipse Che workspace, select the "Git -&gt; Initialize 
+Repository…" menu item and click "OK" in the resulting dialog to 
+initialize a new local repository for the project.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-15-ad533dfa.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-15-ad533dfa.png" pagespeed_url_hash="490159893" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Select the "Git -&gt; Remotes -&gt; Remotes…" menu item. Click 
+the "Add" button and enter the details of the GitLab repository. Specify
+ the repository name as <em>origin</em> and the SSH URL to the repository (obtained in Step 1) as the repository location. Click "OK" to save the changes.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-16-5576572d.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-16-5576572d.png" pagespeed_url_hash="1106478190" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Select the "Git -&gt; Add to Index…" menu item and add all the files in the project to the Git index.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-17-788cc90f.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-17-788cc90f.png" pagespeed_url_hash="231690442" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Select the "Git -&gt; Commit…" menu item to commit the added files to the local repository.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-18-5fe6f162.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-18-5fe6f162.png" pagespeed_url_hash="1211874102" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Use the "Git -&gt; Remotes -&gt; Push…" menu to push the changes to the remote repository.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-19-273ec8b6.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-19-273ec8b6.png" pagespeed_url_hash="3840674336" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+</ul>
+
+<p>If you're using the Git command-line interface (CLI), follow these steps:</p>
+
+<ul>
+  <li>
+    <p>Ensure that your user account is configured to use the private SSH key defined for use with GitLab in Step 2.</p>
+  </li>
+  <li>
+    <p>Change into your project's working directory and initialize a new local Git repository:</p>
+
+    <pre><code><span class="dollar-symbol"></span>cd project
+<span class="dollar-symbol"></span>git init
+</code></pre>
+  </li>
+  <li>
+    <p>Set the committer name and email address, replacing the NAME and EMAIL-ADDRESS placeholders below with actual values:</p>
+
+    <pre><code><span class="dollar-symbol"></span>git config user.name "NAME"
+<span class="dollar-symbol"></span>git config user.email "EMAIL-ADDRESS"
+</code></pre>
+  </li>
+  <li>
+    <p>Add the remote GitLab repository. Specify the repository name as <em>origin</em> and replace the SSH-URL-TO-GITLAB-REPOSITORY placeholder with the SSH URL to the repository (obtained in Step 1).</p>
+
+    <pre><code><span class="dollar-symbol"></span>git remote add origin SSH-URL-TO-GITLAB-REPOSITORY
+</code></pre>
+  </li>
+  <li>
+    <p>Add your project files to the local repository and commit them:</p>
+
+    <pre><code><span class="dollar-symbol"></span>git add .
+<span class="dollar-symbol"></span>git commit -a
+</code></pre>
+  </li>
+  <li>
+    <p>Push the changes to the remote repository:</p>
+
+    <pre><code><span class="dollar-symbol"></span>git push origin master
+</code></pre>
+  </li>
+</ul>
+
+<p>Regardless of how you choose to commit your changes, if all goes 
+well, you should see a success message in Eclipse Che and the committed 
+files will appear in the Git repository on GitLab.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-20-f2fc4688.png"><img alt="Eclipse Che configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-20-f2fc4688.png" pagespeed_url_hash="1285891041" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<div name="step-5-configure-jenkins" data-unique="step-5-configure-jenkins"></div><h3 id="step-5-configure-jenkins">Step 5: Configure Jenkins</h3>
+
+<p>The next step is to connect Jenkins with GitLab, such that a new push
+ to the GitLab repository automatically triggers a Jenkins build. This 
+requires you to add the GitLab plugin to Jenkins and create SSH 
+credentials so that Jenkins can access the GitLab project.</p>
+
+<ul>
+  <li>
+    <p>Log in to Jenkins and click the "Manage Jenkins" link.</p>
+  </li>
+  <li>
+    <p>Select the "Manage Plugins" option.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-21-95007341.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-21-95007341.png" pagespeed_url_hash="3716049198" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>From the "Available" tab, find and select the GitLab plugin. 
+Click the "Download now and install after restart" button to download 
+it.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-22-4c5f2a80.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-22-4c5f2a80.png" pagespeed_url_hash="3194446751" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Once the plugin has been downloaded, click the "Restart Jenkins" checkbox and wait for Jenkins to restart.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-23-2c330493.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-23-2c330493.png" pagespeed_url_hash="1826689614" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+</ul>
+
+<p>If you want Jenkins to merge successful builds back to the GitLab 
+repository, you also need to configure a Git user name and email address
+ in Jenkins. To do this:</p>
+
+<ul>
+  <li>
+    <p>Click the "Manage Jenkins" link.</p>
+  </li>
+  <li>
+    <p>Select the "Configure System" option.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-24-a03335ce.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-24-a03335ce.png" pagespeed_url_hash="4157406773" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>In the "Git plugin" section, enter a user name and email address.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-25-6a974796.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-25-6a974796.png" pagespeed_url_hash="3461871374" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Click "Save" to save the configuration.</p>
+  </li>
+</ul>
+
+<div name="step-6-create-a-jenkins-project" data-unique="step-6-create-a-jenkins-project"></div><h3 id="step-6-create-a-jenkins-project">Step 6: Create a Jenkins project</h3>
+
+<p>You're now ready to create a Jenkins project and connect it to GitLab.</p>
+
+<ul>
+  <li>
+    <p>Log in to Jenkins and click the "New Item" link to create a new job.</p>
+  </li>
+  <li>
+    <p>Enter a name for the job and set it to be a "Freestyle project".</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-26-1f3933d6.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-26-1f3933d6.png" pagespeed_url_hash="4209224217" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>On the job configuration page, find the "Source Code Management" 
+section and select "Git". Configure the GitLab connection as follows:</p>
+
+    <ul>
+      <li>
+        <p>Enter the SSH URL to the GitLab repository.</p>
+
+        <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-27-ee647cf8.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-27-ee647cf8.png" pagespeed_url_hash="3227494439" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+      </li>
+      <li>
+        <p>Click the "Add" button next to the "Credentials" field and select the "Jenkins" option.</p>
+      </li>
+      <li>
+        <p>In the resulting dialog, select "SSH Username with private key" as the credential type, set the "Username" to <em>git</em>,
+ and enter the content of the private key selected for use between 
+GitLab and Jenkins (remember that you already attached the corresponding
+ public key to your GitLab profile in Step 2).</p>
+
+        <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-28-7ab0669a.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-28-7ab0669a.png" pagespeed_url_hash="343103694" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>On the configuration page, select the newly-added credential and attach it to the SSH URL.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-29-a51fc2b7.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-29-a51fc2b7.png" pagespeed_url_hash="3616989938" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>On the same configuration page, find the "Build Triggers" section
+ and check the option to "Build when a change is pushed to GitLab".</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-30-37da9145.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-30-37da9145.png" pagespeed_url_hash="3498729305" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+    <p>Note the Jenkins service URL for the project next to the checkbox, as you will need this in the next step.</p>
+  </li>
+  <li>
+    <p>It is common to have Jenkins merge the new changes into the 
+production branch before building. On the same configuration page, find 
+the "Additional Behaviours" section and check the option to "Merge 
+before build". Specify the name of the repository as <em>origin</em> and the branch to merge to as <em>production</em>.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-31-4d1e7191.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-31-4d1e7191.png" pagespeed_url_hash="2079573388" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>NOTE: The <em>production</em> branch does not exist yet. You will create it in the next step.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>As part of the continuous integration process, you will also 
+usually want Jenkins to automatically merge successful builds back into 
+the <em>production</em> branch. To do this:</p>
+
+    <ul>
+      <li>
+        <p>Click the "Add post-build action" button.</p>
+      </li>
+      <li>
+        <p>Select the "Git Publisher" option</p>
+      </li>
+      <li>
+        <p>Check the "Push only if build succeeds" and "Merge Results" options.</p>
+      </li>
+      <li>
+        <p>Specify the remote name and branch to push as <em>origin</em> and <em>production</em> respectively. You can also add custom tags if you wish.</p>
+      </li>
+    </ul>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-32-49cd19e9.png"><img alt="Jenkins configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-32-49cd19e9.png" pagespeed_url_hash="832724227" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>NOTE: The <em>production</em> branch does not exist yet. You will create it in the next step.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Click "Save" to save the configuration.</p>
+  </li>
+</ul>
+
+<div name="step-7-create-a-gitlab-branch-for-jenkins" data-unique="step-7-create-a-gitlab-branch-for-jenkins"></div><h3 id="step-7-create-a-gitlab-branch-for-jenkins">Step 7: Create a GitLab branch for Jenkins</h3>
+
+<p>The Jenkins configuration in the previous step will merge successful builds to a <em>production</em> branch in the GitLab repository. This branch doesn't exist yet so go ahead and create it, as follows:</p>
+
+<ul>
+  <li>
+    <p>Log in to GitLab and browse to the GitLab page for the project.</p>
+  </li>
+  <li>
+    <p>Select the "New branch" (accessed via the plus symbol) option.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-33-bc6c0858.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-33-bc6c0858.png" pagespeed_url_hash="4034551133" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Create a new branch named <em>production</em> derived from the existing <em>master</em> branch.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-34-052e08ab.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-34-052e08ab.png" pagespeed_url_hash="2248908816" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Click "Create branch" to create the new branch.</p>
+  </li>
+</ul>
+
+<div name="step-8-connect-gitlab-and-jenkins" data-unique="step-8-connect-gitlab-and-jenkins"></div><h3 id="step-8-connect-gitlab-and-jenkins">Step 8: Connect GitLab and Jenkins</h3>
+
+<p>The final step is to connect Jenkins and GitLab, such that Jenkins is
+ automatically notified when there's a new commit to the GitLab 
+repository and can commit successful builds back to it. To do this:</p>
+
+<ul>
+  <li>
+    <p>Log in to GitLab and browse to the GitLab page for the project.</p>
+  </li>
+  <li>
+    <p>Open the project setting page (accessed via the cogwheel icon in the top right corner) and select the "Webhooks" option.</p>
+
+    <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-35-9d8b7623.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-35-9d8b7623.png" pagespeed_url_hash="808811211" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+  </li>
+  <li>
+    <p>Configure a new Jenkins webhook as follows:</p>
+
+    <ul>
+      <li>
+        <p>In the "URL" field, enter the Jenkins service URL from Step 5.</p>
+      </li>
+      <li>
+        <p>In the list of triggers, ensure that the "Push events" 
+trigger is checked. Optionally, select other events that should trigger a
+ new Jenkins build, such as new tags or new comments.</p>
+      </li>
+      <li>
+        <p>If you haven't configured SSL, disable SSL by unchecking the "Enable SSL verification" flag.</p>
+
+        <p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-36-e18fc491.png"><img alt="GitLab configuration" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-36-e18fc491.png" pagespeed_url_hash="1348555216" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Click "Add Webhook" to save the new settings.</p>
+  </li>
+</ul>
+
+<p>You're all set! To verify that it all works, head back to your 
+project, make a change to your project source code and commit the 
+changes.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-37-2f0225fb.png"><img alt="CI pipeline usage" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-37-2f0225fb.png" pagespeed_url_hash="3271412553" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<p>Then, push the changes to the GitLab repository as described in Step 4.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-38-df8905d8.png"><img alt="CI pipeline usage" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-38-df8905d8.png" pagespeed_url_hash="1634820571" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<p>The push should automatically trigger a new build in Jenkins, with 
+the build results visible on the Jenkins overview page for the project.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-39-4a71e1df.png"><img alt="CI pipeline usage" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-39-4a71e1df.png" pagespeed_url_hash="506931159" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<p>If the build is successful, Jenkins will also merge the build back to the <em>production</em> branch in the GitLab repository.</p>
+
+<p><a href="https://docs.bitnami.com/images/img/how_to_guides/create-ci-pipeline/create-ci-pipeline-40-aa58c8f1.png"><img alt="CI pipeline usage" class="img-medium" src="ci-cd-jenkins_files/create-ci-pipeline-40-aa58c8f1.png" pagespeed_url_hash="54274463" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></p>
+
+<p>Your Continuous Integration (CI) pipeline is now ready for use!</p>
+
+</article>
+</main>
+</section>
+
+
+</div>
+<div class="margin-t-reset banner no-border" id="sitemap">
+<div class="container container-small">
+<div class="text-c padding-reset">
+<h3 class="title">Bitnami Documentation</h3>
+<div class="col-md-4 col-xs-12 text-l">
+<h4 class="title">FAQs</h4>
+<ul class="list-unstyled">
+<li>
+<a href="https://docs.bitnami.com/general/faq#find_credentials">How to find application credentials?</a>
+</li>
+<li>
+<a href="https://docs.bitnami.com/general/faq#connect_ssh">How to connect to the server through SSH?</a>
+</li>
+<li>
+<a href="https://docs.bitnami.com/general/faq#upload_files">How to upload files to the server with SFTP?</a>
+</li>
+<li>
+<a href="https://docs.bitnami.com/general/faq#open_firewall">How to open the server ports for remote access?</a>
+</li>
+<li>
+<a href="https://docs.bitnami.com/general/faq#use_external_smtp_title">How to configure your application to use a third-party SMTP service for outgoing email?</a>
+</li>
+<li>
+<a href="https://docs.bitnami.com/general/faq#block_suspicious_ip">How to block a suspicious IP address?</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-xs-12 text-l">
+<h4 class="title">Platform Documentation</h4>
+<ul class="list-unstyled">
+<li><a href="https://docs.bitnami.com/google">Google Cloud Platform</a></li>
+<li><a href="https://docs.bitnami.com/aws">AWS Cloud</a></li>
+<li><a href="https://docs.bitnami.com/oracle">Oracle Cloud Platform</a></li>
+<li><a href="https://docs.bitnami.com/azure">Microsoft Azure</a></li>
+<li><a href="https://docs.bitnami.com/bch">Bitnami Cloud Hosting</a></li>
+<li><a href="https://docs.bitnami.com/centurylink">CenturyLink Cloud</a></li>
+<li><a href="https://docs.bitnami.com/1and1">1&amp;1 Cloud Platform</a></li>
+<li><a href="https://docs.bitnami.com/godaddy">GoDaddy Cloud</a></li>
+<li><a href="https://docs.bitnami.com/opentelekomcloud">Open Telekom Cloud</a></li>
+<li><a href="https://docs.bitnami.com/installer">Installers</a></li>
+<li><a href="https://docs.bitnami.com/virtual-machine">Virtual Machines</a></li>
+<li><a href="https://docs.bitnami.com/containers">Containers</a></li>
+<li><a href="https://docs.bitnami.com/kubernetes">Kubernetes</a></li>
+</ul>
+</div>
+<div class="col-md-4 col-xs-12 text-l">
+<h4 class="title">General Documentation</h4>
+<ul class="list-unstyled">
+<li><a href="https://docs.bitnami.com/general/apps">Bitnami Application Stacks</a></li>
+<li><a href="https://docs.bitnami.com/general/infrastructure">Bitnami Infrastructure Stacks</a></li>
+<li><a href="https://docs.bitnami.com/general/how-to">How-To Guides</a></li>
+<li><a href="https://docs.bitnami.com/general/components">Bitnami Components</a></li>
+<li><a href="https://docs.bitnami.com/general/security">Security Notices</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="container">
+<div class="row">
+<div id="search">
+<h5>© Bitnami 2017</h5>
+<ul class="social white list-unstyled">
+<li class="social-facebook">
+<a target="_blank" href="https://facebook.com/BitNamiProject">Facebook</a>
+</li>
+<li class="social-google">
+<a rel="publisher" target="_blank" href="https://plus.google.com/+BitnamiProject">Google+</a>
+</li>
+<li class="social-twitter">
+<a target="_blank" href="https://twitter.com/Bitnami">Twitter</a>
+</li>
+<li class="social-rss">
+<a target="_blank" href="http://feeds2.feedburner.com/BitnamiBlog">RSS 2.0</a>
+</li>
+</ul>
+
+</div>
+<div id="jump">
+<div>
+<h5>Apps</h5>
+<ul class="list-unstyled">
+<li><a href="https://bitnami.com/stacks">Applications</a></li>
+<li><a href="https://bitnami.com/addons">Add-ons</a></li>
+<li><a href="https://bitnami.com/contest">Vote!</a></li>
+</ul>
+</div>
+<div>
+<h5>What we do</h5>
+<ul class="list-unstyled">
+<li><a href="https://bitnami.com/cloud">Cloud Hosting</a></li>
+<li><a href="https://bitnami.com/cloud/pricing">Pricing</a></li>
+<li><a href="https://bitnami.com/enterprise">Enterprise</a></li>
+<li><a href="https://bitnami.com/partners/cloud">Cloud Partners</a></li>
+<li><a href="https://bitnami.com/partners/software">Software Partners</a></li>
+<li><a href="https://bitnami.com/cloud/customers-testimonials">Customers</a></li>
+<li><a href="https://bitnami.com/cloud/pricing#faqs">FAQs</a></li>
+</ul>
+</div>
+<div>
+<h5>Who we are</h5>
+<ul class="list-unstyled">
+<li><a href="https://bitnami.com/about-us">About</a></li>
+<li><a href="https://bitnami.com/contact">Contact</a></li>
+<li><a href="https://bitnami.com/careers">Careers</a></li>
+<li><a href="https://bitnami.com/news">What's New?</a></li>
+<li><a href="https://bitnami.com/news/press">Press</a></li>
+<li><a href="http://blog.bitnami.com/">Blog</a></li>
+<li><a href="https://bitnami.com/legal">Legal</a></li>
+</ul>
+</div>
+<div>
+<h5>Support</h5>
+<ul class="list-unstyled">
+<li><a href="https://bitnami.com/support">Documentation</a></li>
+<li><a href="https://community.bitnami.com/">Forums</a></li>
+<li><a href="http://helpdesk.bitnami.com/">Helpdesk</a></li>
+<li><a href="https://bitnami.com/webinars">Webinars</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

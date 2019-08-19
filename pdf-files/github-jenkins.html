@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/ -->
+<html class="no-js"><!--<![endif]--><link rel="stylesheet" href="./github-jenkins_files/css"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>How to trigger a Jenkins build process by a GitHub push - Learning Continuous Deployment</title>
+    <meta name="description" content="Hi, we are a handful of students and wanna have some fun with continuous deployment. :-)
+">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="How to trigger a Jenkins build process by a GitHub push - Learning Continuous Deployment"><meta property="og:site_name" content="Learning Continuous Deployment"><meta property="og:description" content="Hi, we are a handful of students and wanna have some fun with continuous deployment. :-)"><meta property="og:url" content="https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/"><meta property="article:published_time" content="2015-04-17T10:09:00+00:00"><meta property="og:image" content="https://learning-continuous-deployment.github.io/assets/images/jenkins-git.jpg">
+  
+    
+
+    
+
+    <link rel="alternate" type="application/rss+xml" href="https://learning-continuous-deployment.github.io/feed.xml">
+    <link rel="shortcut icon" href="https://learning-continuous-deployment.github.io/favicon.ico">
+    <link rel="prefetch" href="https://learning-continuous-deployment.github.io/">
+    <link rel="canonical" href="https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/">
+    <link rel="stylesheet" href="./github-jenkins_files/main.css">
+
+    <!-- IE Fixes -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">a,.post-title a{color:#205081}a:hover{border-bottom-color:#205081}.sidebar{background-color:#205081}.wc-top,.sidebar-toggle:active,#sidebar-checkbox:checked ~ .sidebar-toggle{background-color:#205081}.sidebar a:hover,.sidebar .sidebar-nav a{border-bottom-color:#255d95}.sidebar .sidebar-nav{border-top-color:#255d95}.sidebar .sidebar-nav a.sidebar-nav-item:hover,.sidebar .sidebar-nav a.sidebar-nav-item:focus{background:#23588d}.sidebar .sidebar-nav .sidebar-nav-item.active{background-color:#1d4875}ul.social-media li>a{background-color:#1d4875;border-color:#255d95;border-bottom-color:#255d95 !important}ul.social-media li>a:hover{background-color:#b4d0ec}.btn{border-color:#205081;background:#205081}.btn:hover,.btn:focus{border-color:#1b436d;background:#1b436d}</style>
+  <script type="text/javascript" async="" src="./github-jenkins_files/ga.js"></script><script type="text/javascript" async="" src="./github-jenkins_files/embed.js"></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+  <body>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><div class="sidebar" id="sidebar">    <img src="./github-jenkins_files/hdm-logo.png" alt="Learning Continuous Deployment">    <div class="sidebar-info">      <p>        Hi, we are a handful of students and wanna have some fun with continuous deployment. :-)      </p>  </div>  <br>  <br>    <nav class="sidebar-nav">    <a class="sidebar-nav-item" href="https://learning-continuous-deployment.github.io/">       Home    </a>                <a class="sidebar-nav-item " href="https://learning-continuous-deployment.github.io/about">      About us    </a>                <a class="sidebar-nav-item " href="https://learning-continuous-deployment.github.io/archive">      Blog Archive    </a>        <a class="sidebar-nav-item" href="http://github.com/learning-continuous-deployment" target="_blank">      GitHub    </a>  </nav>  <div class="sidebar-info small">     <p>       Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/gayanvirajith/gaya" target="_blank">Gaya Theme</a>     </p>  </div></div>
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="container">
+          <div class="header-logo"></div>
+          <div class="header-title">
+            <a href="https://learning-continuous-deployment.github.io/" title="Learning Continuous Deployment"> 
+              <h3>Learning Continuous Deployment<small>Continuous Deployment, Docker, Git</small></h3>
+            </a>
+          </div>        
+        </div>  
+      </div>
+      
+      <div class="container content">
+          <div class="post">
+
+  
+  <div class="banner-image">
+    <img src="./github-jenkins_files/jenkins-git.jpg" alt="">
+  </div>
+  
+
+  
+
+  <header class="post-header">
+    <h1 class="post-title">How to trigger a Jenkins build process by a GitHub push</h1>
+    <p class="post-meta">
+    
+      <span class="categories">
+      Jenkins and GitHub
+      </span> |
+    
+    <span class="post-date">
+    Apr 17, 2015  
+    </span>
+    </p>
+  </header>
+
+  <article class="post-content">
+    <p>Hello to our second blog post. This time we will cover how to set up a <a href="https://jenkins-ci.org/">Jenkins</a> job which builds a project of a <a href="https://github.com/">GitHub</a> repository. Additionally, the build process is automatically started when a contributor pushes to the respective GitHub repository.</p>
+
+<p><!--more--></p>
+
+<p>Note: We assume that you have properly installed Jenkins including the <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin">GitHub plugin</a>.</p>
+
+<h2 id="creating-a-jenkins-job">Creating a Jenkins job</h2>
+
+<p>First of all, login to your Jenkins server. Then click on <em>“New Item”</em> and configure it suitable for your project. Name it and press <em>“Ok”</em>.</p>
+
+<p><img src="./github-jenkins_files/git_auto_build_1.png" alt="Creating a Jenkins job"></p>
+
+<p>In the next view, feel free to enter a description for your project. It is necessary to enter the URL to your GitHub repository in the respective text field <em>“GitHub Project”</em>. The other options are mostly irrelevant for our goal, but you can read a detailed description of each by clicking on the question mark icon on the right side.</p>
+
+<p>In the section <em>“Source-Code-Management”</em> select the <em>“Git”</em> option. If you don’t see it, check your GitHub Plugin installation. Enter the repository clone-URL in the appearing text field. When you are using a public GitHub repository, you don’t have to specify any credentials otherwise enter them.</p>
+
+<p><img src="./github-jenkins_files/git_auto_build_2.png" alt="Specify the Jenkins job settings"></p>
+
+<p>Finally, check the <em>“Build when a change is pushed to GitHub”</em> option in the <em>“Build Triggers”</em> section.</p>
+
+<p>Hit the <em>“Save”</em> button and you’re done. You have successfully set-up the Jenkins project. In the next step, we will trigger it by pushing to the GitHub repository.</p>
+
+<p><img src="./github-jenkins_files/git_auto_build_3.png" alt="Configure the Jenkins job for triggering the process by GitHub"></p>
+
+<h2 id="configure-the-github-repository">Configure the GitHub repository</h2>
+
+<p>To be able to trigger the build process by GitHub, you have to configure the Jenkins instance which should be triggered after the push. For this purpose the Jenkins web hook URL is required and must be submitted in the GitHub project.</p>
+
+<p>To fetch the Jenkins hook URL go to the Jenkins system settings (<em>Manage Jenkins</em> -&gt; <em>Configure System</em>). Scroll down to the very bottom of the page and select <em>“Manually manage hook URLs”</em> in the <em>“GitHub Web Hook”</em> section. The hook URL will be shown when you’re clicking on the question mark icon on the right side. Usually, it consists of your hostname and the <code class="highlighter-rouge">/web-hook/</code> postfix. Example: <code class="highlighter-rouge">https://&lt;your-domain-name&gt;/web-hook/</code></p>
+
+<p><img src="./github-jenkins_files/git_auto_build_4.png" alt="Fetching the web hook url"></p>
+
+<p>In the next step, enter your hook URL in the GitHub project. Thereto, go to your GitHub project settings and click on <em>“Webhooks &amp; Services”</em>. Press the <em>“Add service”</em> button and choose <em>“Jenkins (GitHub plugin)”</em> from the service list.</p>
+
+<p><img src="./github-jenkins_files/git_auto_build_5.png" alt="Adding a service to the GitHub project"></p>
+
+<p>Enter your webhook URL in the <em>“Jenkins hook url”</em> field and press <em>“Add service”</em>.</p>
+
+<p><img src="./github-jenkins_files/git_auto_build_6.png" alt="Configure the GitHub project service"></p>
+
+<p>To verify that the hook is working, click on the created service and press the <em>“Test service”</em> button in the upper right corner. If everything is correctly configured, the Jenkins service has got a green checkmark icon in the service overview and the build process has started.</p>
+
+<p><img src="./github-jenkins_files/git_auto_build_7.png" alt="Created GitHub service">
+<img src="./github-jenkins_files/git_auto_build_8.png" alt="Testing GitHub service">
+<img src="./github-jenkins_files/git_auto_build_9.png" alt="Successfully configured GitHub service"></p>
+
+    
+  </article>
+
+  
+    <div class="related-posts">
+      <h4>Related Posts</h4>
+      <ul>
+        
+          <li>
+            <h5>
+              <a href="https://learning-continuous-deployment.github.io/docker/conclusion/2015/06/14/conclusion/">
+                Docker in a nutshell: our conclusion
+                <small>14 Jun 2015</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="https://learning-continuous-deployment.github.io/docker/testing/2015/06/08/testing-benefits/">
+                Testing: Benefits of Docker
+                <small>08 Jun 2015</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="https://learning-continuous-deployment.github.io/dockerswarm/2015/06/07/docker-swarm/">
+                Docker Swarm for Clustering
+                <small>07 Jun 2015</small>
+              </a>
+            </h5>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <div class="author-info">
+    
+      <div class="author">  <h5>Author</h5>  <h6>    <a href="https://learning-continuous-deployment.github.io/about">      Jan and Marius    </a>  </h6></div>
+    
+  
+    
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter" href="https://twitter.com/intent/tweet?original_referer=https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/&amp;text=How%20to%20trigger%20a%20Jenkins%20build%20process%20by%20a%20GitHub%20push&amp;url=https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title=" on Google Plus" href="https://plus.google.com/share?url=https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/" class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/&amp;t=How%20to%20trigger%20a%20Jenkins%20build%20process%20by%20a%20GitHub%20push" class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      
+  </div>
+  
+  
+    <div class="comments">
+        <div id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./github-jenkins_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 477px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'learningcontinuousdeployment';
+			
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+        <div id="g-comments"></div>
+    </div>
+  
+</div>
+
+      </div>
+      <a href="https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/#0" class="wc-top wc-is-visible wc-fade-out">Top</a>
+      
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle">
+      <span></span>
+    </label>
+
+    <script type="text/javascript">
+      var config = {
+        "browser_warning_page": "https://learning-continuous-deployment.github.io/browser-warning/",
+        "disqus_shortname": "learningcontinuousdeployment"
+      };
+      /* Browser support detection */
+      var browserSupport = (function(){
+        var htmlElemClasses = document.querySelector('html').className.split(' ');
+        for ( var i = 0; i < htmlElemClasses.length; i += 1 ){
+          var className = htmlElemClasses[i];
+          if ( className === 'lt-ie9' ){
+            return true;
+          }
+        }
+      }());
+
+      if (browserSupport){
+        window.location="https://learning-continuous-deployment.github.io/browser-warning/";
+      }
+
+      /* To avoid render blocking css */
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'http://fonts.googleapis.com/css?family=PT+Sans';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+
+
+    </script>
+    <script src="./github-jenkins_files/jquery.min.js"></script>
+    <script async="" type="text/javascript" src="./github-jenkins_files/gaya.min.js"></script>
+    
+    
+    
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-57974988-2']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+   
+  
+</body></html>
