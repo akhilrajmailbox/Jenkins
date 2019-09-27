@@ -42,3 +42,12 @@ git show-ref | grep $(git rev-parse HEAD) | grep remotes | grep -v HEAD | sed -e
 ## Web pages for reference
 
 You can clone this repo and open the html files in side [Web-Files](https://github.com/akhilrajmailbox/Jenkins/tree/master/Web-Files) for some configuration reference.
+
+
+
+
+## accessing-and-dumping-jenkins-credentials
+
+[accessing-and-dumping-jenkins-credentials](https://codurance.com/2019/05/30/accessing-and-dumping-jenkins-credentials/)
+
+
