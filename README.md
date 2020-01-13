@@ -21,6 +21,7 @@ docker pull akhilrajmailbox/jenkins:latest
 
 [gradle plugin for jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin)
 
+[SMTP Google issue](https://www.google.com/accounts/DisplayUnlockCaptcha)
 
 ## multi-user-cred >> (role based strategy)
 
